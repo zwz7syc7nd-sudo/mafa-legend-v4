@@ -1,1105 +1,891 @@
 {
-  "build": "R8.0.1",
-  "date": "2026-10-05",
-  "index_sha256": "28eacf4c6001254bd9a230368b33cb283fe8686532a00bd0da12b01a1b9f642e",
-  "core_tests": [
-    {
-      "test": "WebGL 2、雙材質解碼、48怪與世界啟動",
-      "status": "PASS",
-      "detail": {
-        "build": "R8.0.1",
-        "monsters": 48,
-        "world": 224,
-        "materialSizes": [
-          [
-            1024,
-            1024
-          ],
-          [
-            1024,
-            1024
-          ]
-        ]
-      }
-    },
-    {
-      "test": "實際按開始按鈕",
-      "status": "PASS",
-      "detail": "開始成功"
-    },
-    {
-      "test": "CDP真實觸控搖桿、放手停止及鏡頭追隨",
-      "status": "PASS",
-      "detail": {
-        "moved": 5.831697054698419,
-        "after_release": 0.0
-      }
-    },
-    {
-      "test": "城牆碰撞",
-      "status": "PASS",
-      "detail": [
-        23.500000000000014,
-        65
-      ]
-    },
-    {
-      "test": "六區尋路逐段碰撞驗證",
-      "status": "PASS",
-      "detail": [
-        {
-          "region": "town",
-          "points": 1
-        },
-        {
-          "region": "meadow",
-          "points": 1
-        },
-        {
-          "region": "forest",
-          "points": 42
-        },
-        {
-          "region": "ruins",
-          "points": 46
-        },
-        {
-          "region": "mine",
-          "points": 70
-        },
-        {
-          "region": "boss",
-          "points": 73
-        }
-      ]
-    },
-    {
-      "test": "人物待機、走路、揮刀及死亡的關節頂點不同",
-      "status": "PASS",
-      "detail": {
-        "vertices": 78306,
-        "changed": [
-          157950,
-          216530,
-          234918
-        ]
-      }
-    },
-    {
-      "test": "怪物巡邏、追擊與攻擊扣血",
-      "status": "PASS",
-      "detail": {
-        "chased": [
-          1.640000000000017,
-          14
-        ],
-        "hp": 590,
-        "patrol": [
-          38.8364940717611,
-          13.341510559909548
-        ]
-      }
-    },
-    {
-      "test": "普攻前搖、命中、擊退與冷卻",
-      "status": "PASS",
-      "detail": {
-        "damage": 57,
-        "knockback": 0.3200000000000003
-      }
-    },
-    {
-      "test": "怪物死亡、屍體狀態、掉落、實際背包拾取",
-      "status": "PASS",
-      "detail": {
-        "state": "dead",
-        "added": 1
-      }
-    },
-    {
-      "test": "技能MP、冷卻、衝刺位移與無敵時間",
-      "status": "PASS",
-      "detail": {
-        "dashDistance": 8.239999999999966,
-        "fireCooldown": 3.633333333333338
-      }
-    },
-    {
-      "test": "面板開啟暫停怪物與玩家",
-      "status": "PASS",
-      "detail": "所有模擬停止；介面仍可操作"
-    },
-    {
-      "test": "GM實際表單自訂數值與淬鐵外觀",
-      "status": "PASS",
-      "detail": {
-        "id": 66,
-        "name": "QA 測試屠龍",
-        "slot": "weapon",
-        "quality": "legendary",
-        "atk": 777,
-        "def": 11,
-        "crit": 20,
-        "leech": 5,
-        "look": 0
-      }
-    },
-    {
-      "test": "背包實際穿戴後數值與模型生效",
-      "status": "PASS",
-      "detail": {
-        "appearance": {
-          "armor": 3,
-          "weapon": 0
-        },
-        "attack": 807
-      }
-    },
-    {
-      "test": "四套實體裝備模型皆不同",
-      "status": "PASS",
-      "detail": [
-        [
-          1103808,
-          46001833.14833621
-        ],
-        [
-          1126080,
-          49070402.52925081
-        ],
-        [
-          1139904,
-          47134361.258062065
-        ],
-        [
-          1252896,
-          52959027.41104898
-        ]
-      ]
-    },
-    {
-      "test": "裝備預覽走路、攻擊、拖曳旋轉",
-      "status": "PASS",
-      "detail": {
-        "differentRenderedScreens": true
-      }
-    },
-    {
-      "test": "存檔資料往返及R6/R7遷移",
-      "status": "PASS",
-      "detail": {
-        "schemas": [
-          6,
-          7,
-          8
-        ],
-        "customItemPreserved": true
-      }
-    },
-    {
-      "test": "拒絕無效存檔、重複物品ID、非法外觀及部位",
-      "status": "PASS",
-      "detail": [
-        "schema",
-        "id",
-        "look",
-        "slot"
-      ]
-    },
-    {
-      "test": "實際匯出JSON及匯入檔案操作",
-      "status": "PASS",
-      "detail": {
-        "restored_gold": 150
-      }
-    },
-    {
-      "test": "玩家死亡及安全城復活",
-      "status": "PASS",
-      "detail": {
-        "state": "alive",
-        "position": [
-          0,
-          52
-        ]
-      }
-    },
-    {
-      "test": "直立旋轉提示與戰鬥暫停",
-      "status": "PASS",
-      "detail": "直立暫停"
-    },
-    {
-      "test": "橫屏667x375主要按鍵界限與不重疊",
-      "status": "PASS",
-      "detail": [
-        {
-          "id": "joystick",
-          "x": 21,
-          "y": 245,
-          "w": 102,
-          "h": 102
-        },
-        {
-          "id": "attack",
-          "x": 577.0799560546875,
-          "y": 277.08001708984375,
-          "w": 73.9200439453125,
-          "h": 73.91998291015625
-        },
-        {
-          "id": "fire",
-          "x": 521.6400146484375,
-          "y": 233.0800018310547,
-          "w": 50.15997314453125,
-          "h": 50.15998840332031
-        },
-        {
-          "id": "whirl",
-          "x": 585.8800048828125,
-          "y": 209.32000732421875,
-          "w": 50.15997314453125,
-          "h": 50.160003662109375
-        },
-        {
-          "id": "dash",
-          "x": 523.3999633789062,
-          "y": 294.67999267578125,
-          "w": 46.6400146484375,
-          "h": 46.6400146484375
-        },
-        {
-          "id": "potion",
-          "x": 481.1600036621094,
-          "y": 274.44000244140625,
-          "w": 34.319976806640625,
-          "h": 34.32000732421875
-        },
-        {
-          "id": "auto",
-          "x": 549.7999877929688,
-          "y": 153,
-          "w": 101.20001220703125,
-          "h": 24.639999389648438
-        },
-        {
-          "id": "bag-button",
-          "x": 392,
-          "y": 9,
-          "w": 34,
-          "h": 37
-        },
-        {
-          "id": "map-button",
-          "x": 429,
-          "y": 9,
-          "w": 34,
-          "h": 37
-        },
-        {
-          "id": "gm-button",
-          "x": 466,
-          "y": 9,
-          "w": 34,
-          "h": 37
-        },
-        {
-          "id": "settings-button",
-          "x": 503,
-          "y": 9,
-          "w": 34,
-          "h": 37
-        }
-      ]
-    },
-    {
-      "test": "橫屏844x390主要按鍵界限與不重疊",
-      "status": "PASS",
-      "detail": [
-        {
-          "id": "joystick",
-          "x": 24,
-          "y": 247,
-          "w": 115,
-          "h": 115
-        },
-        {
-          "id": "attack",
-          "x": 744,
-          "y": 282,
-          "w": 84,
-          "h": 84
-        },
-        {
-          "id": "fire",
-          "x": 681,
-          "y": 232,
-          "w": 57,
-          "h": 57
-        },
-        {
-          "id": "whirl",
-          "x": 754,
-          "y": 205,
-          "w": 57,
-          "h": 57
-        },
-        {
-          "id": "dash",
-          "x": 683,
-          "y": 302,
-          "w": 53,
-          "h": 53
-        },
-        {
-          "id": "potion",
-          "x": 635,
-          "y": 279,
-          "w": 39,
-          "h": 39
-        },
-        {
-          "id": "auto",
-          "x": 713,
-          "y": 141,
-          "w": 115,
-          "h": 28
-        },
-        {
-          "id": "bag-button",
-          "x": 535,
-          "y": 9,
-          "w": 38,
-          "h": 43
-        },
-        {
-          "id": "map-button",
-          "x": 578,
-          "y": 9,
-          "w": 38,
-          "h": 43
-        },
-        {
-          "id": "gm-button",
-          "x": 621,
-          "y": 9,
-          "w": 38,
-          "h": 43
-        },
-        {
-          "id": "settings-button",
-          "x": 664,
-          "y": 9,
-          "w": 38,
-          "h": 43
-        }
-      ]
-    },
-    {
-      "test": "橫屏932x430主要按鍵界限與不重疊",
-      "status": "PASS",
-      "detail": [
-        {
-          "id": "joystick",
-          "x": 24,
-          "y": 287,
-          "w": 115,
-          "h": 115
-        },
-        {
-          "id": "attack",
-          "x": 832,
-          "y": 322,
-          "w": 84,
-          "h": 84
-        },
-        {
-          "id": "fire",
-          "x": 769,
-          "y": 272,
-          "w": 57,
-          "h": 57
-        },
-        {
-          "id": "whirl",
-          "x": 842,
-          "y": 245,
-          "w": 57,
-          "h": 57
-        },
-        {
-          "id": "dash",
-          "x": 771,
-          "y": 342,
-          "w": 53,
-          "h": 53
-        },
-        {
-          "id": "potion",
-          "x": 723,
-          "y": 319,
-          "w": 39,
-          "h": 39
-        },
-        {
-          "id": "auto",
-          "x": 801,
-          "y": 181,
-          "w": 115,
-          "h": 28
-        },
-        {
-          "id": "bag-button",
-          "x": 623,
-          "y": 9,
-          "w": 38,
-          "h": 43
-        },
-        {
-          "id": "map-button",
-          "x": 666,
-          "y": 9,
-          "w": 38,
-          "h": 43
-        },
-        {
-          "id": "gm-button",
-          "x": 709,
-          "y": 9,
-          "w": 38,
-          "h": 43
-        },
-        {
-          "id": "settings-button",
-          "x": 752,
-          "y": 9,
-          "w": 38,
-          "h": 43
-        }
-      ]
-    },
-    {
-      "test": "橫屏1280x720主要按鍵界限與不重疊",
-      "status": "PASS",
-      "detail": [
-        {
-          "id": "joystick",
-          "x": 39,
-          "y": 529,
-          "w": 148,
-          "h": 148
-        },
-        {
-          "id": "attack",
-          "x": 1143.1199951171875,
-          "y": 577.1199951171875,
-          "w": 110.8800048828125,
-          "h": 110.8800048828125
-        },
-        {
-          "id": "fire",
-          "x": 1059.9599609375,
-          "y": 511.1199951171875,
-          "w": 75.239990234375,
-          "h": 75.239990234375
-        },
-        {
-          "id": "whirl",
-          "x": 1156.3199462890625,
-          "y": 475.47998046875,
-          "w": 75.2401123046875,
-          "h": 75.239990234375
-        },
-        {
-          "id": "dash",
-          "x": 1062.5999755859375,
-          "y": 603.52001953125,
-          "w": 69.9600830078125,
-          "h": 69.9599609375
-        },
-        {
-          "id": "potion",
-          "x": 999.239990234375,
-          "y": 573.1599731445312,
-          "w": 51.47998046875,
-          "h": 51.48004150390625
-        },
-        {
-          "id": "auto",
-          "x": 1102.199951171875,
-          "y": 391,
-          "w": 151.800048828125,
-          "h": 36.959991455078125
-        },
-        {
-          "id": "bag-button",
-          "x": 902,
-          "y": 9,
-          "w": 46,
-          "h": 53
-        },
-        {
-          "id": "map-button",
-          "x": 956,
-          "y": 9,
-          "w": 46,
-          "h": 53
-        },
-        {
-          "id": "gm-button",
-          "x": 1010,
-          "y": 9,
-          "w": 46,
-          "h": 53
-        },
-        {
-          "id": "settings-button",
-          "x": 1064,
-          "y": 9,
-          "w": 46,
-          "h": 53
-        }
-      ]
-    },
-    {
-      "test": "最終JavaScript及WebGL錯誤",
-      "status": "PASS",
-      "detail": {
-        "JS": [],
-        "GL": 0
-      }
-    },
-    {
-      "test": "瀏覽器pageerror與console error",
-      "status": "PASS",
-      "detail": {
-        "pageerror": [],
-        "consoleError": []
-      }
-    }
-  ],
-  "auto_sweep_tests": [
-    {
-      "seed": 137,
-      "trace": [
-        {
-          "alive": 36,
-          "kills": 12,
-          "regions": [
-            "town",
-            "meadow"
-          ],
-          "hp": 706.8133333333462,
-          "level": 3,
-          "position": [
-            27.62559722993507,
-            0.5352702993407172
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 30
-        },
-        {
-          "alive": 26,
-          "kills": 22,
-          "regions": [
-            "town",
-            "meadow",
-            "ruins"
-          ],
-          "hp": 914,
-          "level": 7,
-          "position": [
-            66.45139273861489,
-            -35.096662530958454
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 60
-        },
-        {
-          "alive": 20,
-          "kills": 28,
-          "regions": [
-            "town",
-            "meadow",
-            "ruins",
-            "boss"
-          ],
-          "hp": 599,
-          "level": 8,
-          "position": [
-            58.374127457724654,
-            -70.74016415079382
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 90
-        },
-        {
-          "alive": 18,
-          "kills": 30,
-          "regions": [
-            "town",
-            "meadow",
-            "ruins",
-            "boss",
-            "mine"
-          ],
-          "hp": 1137,
-          "level": 11,
-          "position": [
-            -49.9494280889119,
-            -71.72787028263383
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 120
-        },
-        {
-          "alive": 10,
-          "kills": 38,
-          "regions": [
-            "town",
-            "meadow",
-            "ruins",
-            "boss",
-            "mine"
-          ],
-          "hp": 1315,
-          "level": 13,
-          "position": [
-            -64.18605354596502,
-            -52.197591385025554
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 150
-        },
-        {
-          "alive": 0,
-          "kills": 48,
-          "regions": [
-            "town",
-            "meadow",
-            "ruins",
-            "boss",
-            "mine",
-            "forest"
-          ],
-          "hp": 1327.8666666666459,
-          "level": 13,
-          "position": [
-            -54.40055004654738,
-            10.70537807016539
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 180
-        }
-      ],
-      "status": "PASS",
-      "errors": [],
-      "gm": {
-        "god": false,
-        "one": false,
-        "speed": false
-      },
-      "autoEquip": false
-    },
-    {
-      "seed": 881,
-      "trace": [
-        {
-          "alive": 36,
-          "kills": 12,
-          "regions": [
-            "town",
-            "meadow"
-          ],
-          "hp": 667.2000000000035,
-          "level": 3,
-          "position": [
-            22.258496081108365,
-            -8.843554379908912
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 30
-        },
-        {
-          "alive": 26,
-          "kills": 22,
-          "regions": [
-            "town",
-            "meadow",
-            "ruins"
-          ],
-          "hp": 914,
-          "level": 7,
-          "position": [
-            69.02026769980382,
-            -15.95797034579023
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 60
-        },
-        {
-          "alive": 20,
-          "kills": 28,
-          "regions": [
-            "town",
-            "meadow",
-            "ruins",
-            "boss"
-          ],
-          "hp": 584.293333333339,
-          "level": 8,
-          "position": [
-            59.49039449131633,
-            -70.97708921056878
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 90
-        },
-        {
-          "alive": 19,
-          "kills": 29,
-          "regions": [
-            "town",
-            "meadow",
-            "ruins",
-            "boss",
-            "mine"
-          ],
-          "hp": 988.5999999999694,
-          "level": 10,
-          "position": [
-            -49.81525537551539,
-            -71.15420792238658
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 120
-        },
-        {
-          "alive": 10,
-          "kills": 38,
-          "regions": [
-            "town",
-            "meadow",
-            "ruins",
-            "boss",
-            "mine"
-          ],
-          "hp": 1315,
-          "level": 13,
-          "position": [
-            -75.98916432516948,
-            -64.14622924585805
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 150
-        },
-        {
-          "alive": 0,
-          "kills": 48,
-          "regions": [
-            "town",
-            "meadow",
-            "ruins",
-            "boss",
-            "mine",
-            "forest"
-          ],
-          "hp": 1365.2266666666173,
-          "level": 13,
-          "position": [
-            -56.59659859922023,
-            8.526742381291964
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 180
-        }
-      ],
-      "status": "PASS",
-      "errors": [],
-      "gm": {
-        "god": false,
-        "one": false,
-        "speed": false
-      },
-      "autoEquip": false
-    },
-    {
-      "seed": 20261005,
-      "trace": [
-        {
-          "alive": 36,
-          "kills": 12,
-          "regions": [
-            "town",
-            "meadow"
-          ],
-          "hp": 655.1466666666673,
-          "level": 3,
-          "position": [
-            -13.050464955955446,
-            5.0214296190366285
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 30
-        },
-        {
-          "alive": 27,
-          "kills": 21,
-          "regions": [
-            "town",
-            "meadow",
-            "forest"
-          ],
-          "hp": 860,
-          "level": 6,
-          "position": [
-            -75.88542756201578,
-            1.6269984558967365
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 60
-        },
-        {
-          "alive": 21,
-          "kills": 27,
-          "regions": [
-            "town",
-            "meadow",
-            "forest",
-            "mine"
-          ],
-          "hp": 886,
-          "level": 8,
-          "position": [
-            -63.092902664600246,
-            -73.41509573608501
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 90
-        },
-        {
-          "alive": 17,
-          "kills": 31,
-          "regions": [
-            "town",
-            "meadow",
-            "forest",
-            "mine"
-          ],
-          "hp": 1124.7599999999957,
-          "level": 10,
-          "position": [
-            -14.740254046818826,
-            -82.99560656639315
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 120
-        },
-        {
-          "alive": 13,
-          "kills": 35,
-          "regions": [
-            "town",
-            "meadow",
-            "forest",
-            "mine",
-            "boss"
-          ],
-          "hp": 830.413333333297,
-          "level": 10,
-          "position": [
-            59.8743276508586,
-            -73.54737923151487
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 150
-        },
-        {
-          "alive": 6,
-          "kills": 42,
-          "regions": [
-            "town",
-            "meadow",
-            "forest",
-            "mine",
-            "boss",
-            "ruins"
-          ],
-          "hp": 1324.8933333333243,
-          "level": 13,
-          "position": [
-            57.771944930983615,
-            -19.236744072714412
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 180
-        },
-        {
-          "alive": 0,
-          "kills": 48,
-          "regions": [
-            "town",
-            "meadow",
-            "forest",
-            "mine",
-            "boss",
-            "ruins"
-          ],
-          "hp": 1380,
-          "level": 13,
-          "position": [
-            53.047281041623215,
-            -11.622020940823226
-          ],
-          "auto": true,
-          "gm": null,
-          "seconds": 210
-        }
-      ],
-      "status": "PASS",
-      "errors": [],
-      "gm": {
-        "god": false,
-        "one": false,
-        "speed": false
-      },
-      "autoEquip": false
-    }
-  ],
-  "service_worker_unit_tests": [
-    {
-      "test": "離線清單包含所有引用素材且檔案存在",
-      "status": "PASS",
-      "detail": {
-        "cachedResources": 29,
-        "imageAssets": 26
-      }
-    },
-    {
-      "test": "所有離線資源收齊才啟用",
-      "status": "PASS",
-      "detail": "已安裝全資源並呼叫 skipWaiting"
-    },
-    {
-      "test": "缺少素材時安裝失敗不啟用",
-      "status": "PASS",
-      "detail": "缺材質404時拒絕安裝"
-    },
-    {
-      "test": "更新只清瑪法舊快取",
-      "status": "PASS",
-      "detail": "保留非遊戲快取；不讀寫localStorage"
-    },
-    {
-      "test": "首頁網路優先，斷網才回退",
-      "status": "PASS",
-      "detail": "線上新HTML可被離線讀回"
-    },
-    {
-      "test": "伺服器404不被舊快取遮掩",
-      "status": "PASS",
-      "detail": "保留實際404"
-    },
-    {
-      "test": "已快取材質可離線讀取，外站與POST不攔截",
-      "status": "PASS",
-      "detail": "成功"
-    },
-    {
-      "test": "首次离線未安裝明確503提示",
-      "status": "PASS",
-      "detail": "離線資源尚未安裝完成。請先連網開啟遊戲。"
-    }
-  ],
-  "package_checks": [
-    {
-      "test": "內嵌 JavaScript 語法檢查",
-      "status": "PASS",
-      "detail": "4 / 4 通過"
-    },
-    {
-      "test": "Service Worker 語法檢查",
-      "status": "PASS",
-      "detail": "通過"
-    },
-    {
-      "test": "manifest 和 Vercel 設定可解析",
-      "status": "PASS",
-      "detail": "framework=null、Output 根目錄、首頁重寫、build header R8.0.1"
-    },
-    {
-      "test": "靜態與動態資源引用完整",
-      "status": "PASS",
-      "detail": [
-        "icon-192.png",
-        "item-armor-0.png",
-        "item-armor-1.png",
-        "item-armor-2.png",
-        "item-armor-3.png",
-        "item-charm-0.png",
-        "item-charm-1.png",
-        "item-charm-2.png",
-        "item-charm-3.png",
-        "item-ring-0.png",
-        "item-ring-1.png",
-        "item-ring-2.png",
-        "item-ring-3.png",
-        "item-weapon-0.png",
-        "item-weapon-1.png",
-        "item-weapon-2.png",
-        "item-weapon-3.png",
-        "manifest.webmanifest",
-        "materials-normal.png",
-        "materials.jpg",
-        "skill-attack.jpg",
-        "skill-dash.jpg",
-        "skill-fire.jpg",
-        "skill-potion.jpg",
-        "skill-whirl.jpg",
-        "ui-frame.svg"
-      ]
-    },
-    {
-      "test": "圖片解碼與校驗",
-      "status": "PASS",
-      "detail": "25 PNG/JPG 加 1 個 SVG"
-    },
-    {
-      "test": "版本與離線快取鍵一致",
-      "status": "PASS",
-      "detail": "R8.0.1 / mafa-reborn-r8-20261005-r1"
-    }
-  ],
+  "build": "R9.4.0-six",
+  "utc": "2026-10-05T18:01:00.851366+00:00",
   "environment": {
-    "browser": "Chromium 144.0.7559.96 on Linux, headed Xvfb, ANGLE SwiftShader WebGL 2",
-    "load": "page.set_content, only resource URLs mapped to local data URLs; game simulation code unchanged",
-    "touch": "Chromium CDP Input.dispatchTouchEvent",
-    "simulation": "actual Reborn.advance / tick with 1/30 second steps; accelerated game time, not real phone runtime"
+    "browser": "Chromium 144.0.7559.96",
+    "load": "page.set_content + local asset data-URL mapping",
+    "physical_iPhone": false,
+    "deployed": false
   },
-  "known_limits": [
-    "NOT deployed to GitHub or Vercel in this turn",
-    "NOT tested on a physical iPhone, no verified iPhone FPS/thermal/battery result",
-    "Browser navigation to local HTTP was blocked by administrator policy; did not change or bypass policy. No real Service Worker online/offline end-to-end test. SW unit tests use Node VM with fake Cache/fetch interfaces.",
-    "Save tests cover export/import browser operations and serialization, not localStorage persistence on an iPhone.",
-    "Visual result is stylized 3D, NOT the fidelity of the approved photorealistic concept.",
-    "GM names/stats are configurable; visuals are four built-in armor/weapon models, not arbitrary newly generated 3D gear."
-  ]
+  "tests": {
+    "functional": [
+      {
+        "name": "01 真實啟動、224世界、48怪與完整素材",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "build": "R9.4.0-six",
+          "images": 33
+        }
+      },
+      {
+        "name": "02 主畫布不是黑屏",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "colors": 2216
+        }
+      },
+      {
+        "name": "03 投影與點地逆運算",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "ground": [
+            11.000002747391001,
+            48.000001824709
+          ]
+        }
+      },
+      {
+        "name": "04 CDP真實觸控移動、鏡頭跟隨、取消後停止",
+        "pass": true,
+        "detail": {
+          "distance": 4.215053763440823,
+          "before": {
+            "x": 0,
+            "z": 54
+          },
+          "after": {
+            "x": 3.3720430107526873,
+            "z": 51.470967741935546,
+            "cam": {
+              "x": 2.8464353094551993,
+              "z": 50.86517351790865
+            }
+          },
+          "stop": {
+            "x": 3.3720430107526873,
+            "z": 51.470967741935546
+          }
+        }
+      },
+      {
+        "name": "05 手腳武器為獨立關節變化",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "foot": 12.550134389722063,
+          "hand": 3.557285783319013
+        }
+      },
+      {
+        "name": "06 揮刀會改變刀尖而不是整張人平移",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "delta": 77.78219792369941
+        }
+      },
+      {
+        "name": "07 四套外觀立即改變真實渲染",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "looks": 4
+        }
+      },
+      {
+        "name": "08 城牆阻擋及通行路徑",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "nodes": 1
+        }
+      },
+      {
+        "name": "09 怪物巡邏真的位移",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "state": "patrol",
+          "distance": 4.379566666666666
+        }
+      },
+      {
+        "name": "10 怪物追擊、攻擊與生命減少",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "damage": 168,
+          "state": "attack"
+        }
+      },
+      {
+        "name": "技能 basic 實際施放及效果",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "damage": 105,
+          "moved": 0,
+          "mp": 120,
+          "buffs": {
+            "avatar": 0,
+            "guard": 0
+          }
+        }
+      },
+      {
+        "name": "技能 fire 實際施放及效果",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "damage": 330,
+          "moved": 0,
+          "mp": 108.60000000000015,
+          "buffs": {
+            "avatar": 0,
+            "guard": 0
+          }
+        }
+      },
+      {
+        "name": "技能 crescent 實際施放及效果",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "damage": 196,
+          "moved": 0,
+          "mp": 112.60000000000015,
+          "buffs": {
+            "avatar": 0,
+            "guard": 0
+          }
+        }
+      },
+      {
+        "name": "技能 dash 實際施放及效果",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "damage": 250,
+          "moved": 8,
+          "mp": 118.60000000000015,
+          "buffs": {
+            "avatar": 0,
+            "guard": 0
+          }
+        }
+      },
+      {
+        "name": "技能 thunder 實際施放及效果",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "damage": 219,
+          "moved": 0,
+          "mp": 106.60000000000015,
+          "buffs": {
+            "avatar": 0,
+            "guard": 0
+          }
+        }
+      },
+      {
+        "name": "技能 whirl 實際施放及效果",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "damage": 410,
+          "moved": 0,
+          "mp": 100.60000000000015,
+          "buffs": {
+            "avatar": 0,
+            "guard": 0
+          }
+        }
+      },
+      {
+        "name": "技能 avatar 實際施放及效果",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "damage": 0,
+          "moved": 0,
+          "mp": 98.60000000000015,
+          "buffs": {
+            "avatar": 8.23333333333334,
+            "guard": 0
+          }
+        }
+      },
+      {
+        "name": "技能 dragon 實際施放及效果",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "damage": 463,
+          "moved": 0,
+          "mp": 82.60000000000015,
+          "buffs": {
+            "avatar": 0,
+            "guard": 0
+          }
+        }
+      },
+      {
+        "name": "技能 guard 實際施放及效果",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "damage": 0,
+          "moved": 0,
+          "mp": 106.60000000000015,
+          "buffs": {
+            "avatar": 0,
+            "guard": 6.23333333333334
+          }
+        }
+      },
+      {
+        "name": "技能 blink 實際施放及效果",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "damage": 179,
+          "moved": 0.8999999999999986,
+          "mp": 110.60000000000015,
+          "buffs": {
+            "avatar": 0,
+            "guard": 0
+          }
+        }
+      },
+      {
+        "name": "21 魔力不足不能施放",
+        "pass": true,
+        "detail": {
+          "pass": true
+        }
+      },
+      {
+        "name": "22 冷卻阻止重施",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "remaining": 4.0000000000000036
+        }
+      },
+      {
+        "name": "Boss slam 預警與執行",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "shape": "circle",
+          "inside": true,
+          "monsters": 1
+        }
+      },
+      {
+        "name": "Boss breath 預警與執行",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "shape": "cone",
+          "inside": true,
+          "monsters": 1
+        }
+      },
+      {
+        "name": "Boss charge 預警與執行",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "shape": "line",
+          "inside": true,
+          "monsters": 1
+        }
+      },
+      {
+        "name": "Boss summon 預警與執行",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "shape": "summon",
+          "inside": false,
+          "monsters": 4
+        }
+      },
+      {
+        "name": "27 玩家死亡與回城復活",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "z": 52
+        }
+      },
+      {
+        "name": "28 擊殺掉寶並拾入背包",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "drop": true
+        }
+      },
+      {
+        "name": "29 背包分類按鈕",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "visible": 8
+        }
+      },
+      {
+        "name": "30 整理保留物品且實際重排",
+        "pass": true,
+        "detail": {
+          "pass": true
+        }
+      },
+      {
+        "name": "31 強化扣金、數值與加值徽記",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "rank": "+1",
+          "gold": 8700
+        }
+      },
+      {
+        "name": "32 背包開啟暫停戰鬥",
+        "pass": true,
+        "detail": true
+      },
+      {
+        "name": "33 存檔序列化還原",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "schema": 9
+        }
+      },
+      {
+        "name": "34 非法裝備強化存檔拒絕",
+        "pass": true,
+        "detail": true
+      },
+      {
+        "name": "35 GM表單生成指定裝備",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "item": {
+            "id": 90,
+            "name": "蒼曜測試戰刃",
+            "slot": "weapon",
+            "quality": "legendary",
+            "atk": 345,
+            "def": 35,
+            "crit": 30,
+            "leech": 10,
+            "look": 2
+          }
+        }
+      },
+      {
+        "name": "36 技能書十式",
+        "pass": true,
+        "detail": {
+          "pass": true
+        }
+      },
+      {
+        "name": "37 第二頁技能實際切換",
+        "pass": true,
+        "detail": {
+          "pass": true
+        }
+      },
+      {
+        "name": "38 直立提示與暂停",
+        "pass": true,
+        "detail": {
+          "pass": true
+        }
+      },
+      {
+        "name": "橫屏 844x390 技能按鍵边界和無互相覆蓋",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "pairs": [],
+          "outside": []
+        }
+      },
+      {
+        "name": "橫屏 896x414 技能按鍵边界和無互相覆蓋",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "pairs": [],
+          "outside": []
+        }
+      },
+      {
+        "name": "橫屏 740x360 技能按鍵边界和無互相覆蓋",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "pairs": [],
+          "outside": []
+        }
+      },
+      {
+        "name": "橫屏 1024x768 技能按鍵边界和無互相覆蓋",
+        "pass": true,
+        "detail": {
+          "pass": true,
+          "pairs": [],
+          "outside": []
+        }
+      },
+      {
+        "name": "43 JavaScript未捕獲錯誤",
+        "pass": true,
+        "detail": []
+      }
+    ],
+    "supplementary": [
+      {
+        "name": "六區移動分塊快取不超過64",
+        "pass": true,
+        "detail": [
+          {
+            "chunks": 12,
+            "draws": 38,
+            "pos": [
+              0,
+              54
+            ]
+          },
+          {
+            "chunks": 21,
+            "draws": 33,
+            "pos": [
+              0,
+              14
+            ]
+          },
+          {
+            "chunks": 34,
+            "draws": 27,
+            "pos": [
+              -62,
+              -2
+            ]
+          },
+          {
+            "chunks": 46,
+            "draws": 50,
+            "pos": [
+              61,
+              -19
+            ]
+          },
+          {
+            "chunks": 57,
+            "draws": 69,
+            "pos": [
+              -62,
+              -73
+            ]
+          },
+          {
+            "chunks": 64,
+            "draws": 56,
+            "pos": [
+              58,
+              -71
+            ]
+          }
+        ]
+      },
+      {
+        "name": "最遠鏡頭靜止時不重建地塊",
+        "pass": true,
+        "detail": {
+          "chunks": 64,
+          "rebuildsInStationaryFrame": 0
+        }
+      },
+      {
+        "name": "版本標記與素材URL一致",
+        "pass": true
+      },
+      {
+        "name": "鏡頭設定保存與還原",
+        "pass": true,
+        "zoom": 20.4
+      },
+      {
+        "name": "拒絕非有限生命數值存檔",
+        "pass": true
+      },
+      {
+        "name": "補充渲染測試沒有未捕獲例外",
+        "pass": true,
+        "errors": []
+      },
+      {
+        "name": "實際requestAnimationFrame主迴圈運行",
+        "pass": true,
+        "simulation_delta": 1.3333000000000004,
+        "errors": []
+      },
+      {
+        "name": "28幀實際關節動作錄製",
+        "pass": true,
+        "frames": 28,
+        "distinct_sword_positions": 25,
+        "errors": []
+      }
+    ],
+    "normal_auto": [
+      {
+        "name": "normal auto seed 137",
+        "pass": true,
+        "initial": {
+          "stats": {
+            "maxHp": 600,
+            "maxMp": 120,
+            "atk": 54,
+            "def": 18,
+            "crit": 9,
+            "leech": 0
+          },
+          "gm": {
+            "god": false,
+            "one": false,
+            "speed": false,
+            "noCooldown": false,
+            "infiniteMP": false,
+            "damageMultiplier": 1
+          },
+          "monsters": 48
+        },
+        "trace": [
+          {
+            "time": 20.000000000000153,
+            "alive": 39,
+            "visited": 2,
+            "hp": 676.9466666666704,
+            "level": 3,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 40.00000000000029,
+            "alive": 28,
+            "visited": 3,
+            "hp": 860.7466666666669,
+            "level": 6,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 59.999999999999154,
+            "alive": 21,
+            "visited": 4,
+            "hp": 1008.9466666666725,
+            "level": 8,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 79.99999999999802,
+            "alive": 19,
+            "visited": 4,
+            "hp": 1055,
+            "level": 10,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 99.99999999999689,
+            "alive": 17,
+            "visited": 5,
+            "hp": 1202.1733333333177,
+            "level": 11,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 119.99999999999575,
+            "alive": 12,
+            "visited": 5,
+            "hp": 1236.8266666666568,
+            "level": 12,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 139.99999999999463,
+            "alive": 5,
+            "visited": 6,
+            "hp": 1326.0133333333233,
+            "level": 13,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 159.9999999999935,
+            "alive": 0,
+            "visited": 6,
+            "hp": 1380,
+            "level": 13,
+            "auto": true,
+            "monsters": 48
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "normal auto seed 881",
+        "pass": true,
+        "initial": {
+          "stats": {
+            "maxHp": 600,
+            "maxMp": 120,
+            "atk": 54,
+            "def": 18,
+            "crit": 9,
+            "leech": 0
+          },
+          "gm": {
+            "god": false,
+            "one": false,
+            "speed": false,
+            "noCooldown": false,
+            "infiniteMP": false,
+            "damageMultiplier": 1
+          },
+          "monsters": 48
+        },
+        "trace": [
+          {
+            "time": 20.000000000000153,
+            "alive": 37,
+            "visited": 2,
+            "hp": 681.5200000000051,
+            "level": 3,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 40.00000000000029,
+            "alive": 27,
+            "visited": 3,
+            "hp": 926.6800000000005,
+            "level": 7,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 59.999999999999154,
+            "alive": 22,
+            "visited": 4,
+            "hp": 1007.3600000000054,
+            "level": 8,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 79.99999999999802,
+            "alive": 19,
+            "visited": 4,
+            "hp": 1055,
+            "level": 11,
+            "auto": true,
+            "monsters": 51
+          },
+          {
+            "time": 99.99999999999689,
+            "alive": 14,
+            "visited": 5,
+            "hp": 1250,
+            "level": 12,
+            "auto": true,
+            "monsters": 51
+          },
+          {
+            "time": 119.99999999999575,
+            "alive": 9,
+            "visited": 6,
+            "hp": 1342.9066666666413,
+            "level": 13,
+            "auto": true,
+            "monsters": 51
+          },
+          {
+            "time": 139.99999999999463,
+            "alive": 0,
+            "visited": 6,
+            "hp": 1380,
+            "level": 13,
+            "auto": true,
+            "monsters": 51
+          }
+        ],
+        "errors": []
+      },
+      {
+        "name": "normal auto seed 20261005",
+        "pass": true,
+        "initial": {
+          "stats": {
+            "maxHp": 600,
+            "maxMp": 120,
+            "atk": 54,
+            "def": 18,
+            "crit": 9,
+            "leech": 0
+          },
+          "gm": {
+            "god": false,
+            "one": false,
+            "speed": false,
+            "noCooldown": false,
+            "infiniteMP": false,
+            "damageMultiplier": 1
+          },
+          "monsters": 48
+        },
+        "trace": [
+          {
+            "time": 20.000000000000153,
+            "alive": 38,
+            "visited": 2,
+            "hp": 677.6000000000039,
+            "level": 3,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 40.00000000000029,
+            "alive": 28,
+            "visited": 3,
+            "hp": 860.9333333333336,
+            "level": 6,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 59.999999999999154,
+            "alive": 24,
+            "visited": 4,
+            "hp": 929.8533333333348,
+            "level": 7,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 79.99999999999802,
+            "alive": 18,
+            "visited": 4,
+            "hp": 1038.3333333333248,
+            "level": 9,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 99.99999999999689,
+            "alive": 17,
+            "visited": 5,
+            "hp": 1151.7333333333045,
+            "level": 10,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 119.99999999999575,
+            "alive": 13,
+            "visited": 5,
+            "hp": 1025.759999999951,
+            "level": 10,
+            "auto": true,
+            "monsters": 48
+          },
+          {
+            "time": 139.99999999999463,
+            "alive": 9,
+            "visited": 6,
+            "hp": 1202.5466666666507,
+            "level": 12,
+            "auto": true,
+            "monsters": 51
+          },
+          {
+            "time": 159.9999999999935,
+            "alive": 0,
+            "visited": 6,
+            "hp": 1369.6933333332836,
+            "level": 13,
+            "auto": true,
+            "monsters": 51
+          }
+        ],
+        "errors": []
+      }
+    ],
+    "service_worker_units": [
+      {
+        "name": "SW1 完整預快取與安裝完成標記",
+        "pass": true,
+        "detail": {
+          "resources": 81
+        }
+      },
+      {
+        "name": "SW2 缺檔時不啟用且清除半套快取",
+        "pass": true
+      },
+      {
+        "name": "SW3 不完整版本不允許接管頁面",
+        "pass": true
+      },
+      {
+        "name": "SW4 舊遊戲快取清理不刪其他資料",
+        "pass": true
+      },
+      {
+        "name": "SW5 已安装首頁離線回退",
+        "pass": true
+      },
+      {
+        "name": "SW6 版本化素材可由已安裝快取提供",
+        "pass": true
+      },
+      {
+        "name": "SW7 不用舊版遮掩伺服器404",
+        "pass": true
+      },
+      {
+        "name": "SW8 POST不攔截",
+        "pass": true
+      },
+      {
+        "name": "SW9 其他網域不攔截",
+        "pass": true
+      },
+      {
+        "name": "SW10 其他版本不誤回舊素材",
+        "pass": true
+      },
+      {
+        "name": "SW11 所有預快取資源實際存在",
+        "pass": true,
+        "detail": []
+      }
+    ]
+  },
+  "packaging_checks": {
+    "inline_and_external_js_syntax": "PASS",
+    "json_parse": "PASS",
+    "png_jpeg_decode": "PASS",
+    "image_files": 64,
+    "literal_local_references_checked": 82,
+    "missing": [],
+    "manifest_landscape": true,
+    "html_and_sw_version_match": true
+  }
 }

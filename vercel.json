@@ -14,7 +14,7 @@
       "headers": [
         {
           "key": "X-Game-Build",
-          "value": "R8.0.1"
+          "value": "R9.4.0-six"
         }
       ]
     },
@@ -33,6 +33,33 @@
         {
           "key": "Cache-Control",
           "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/r9-visual.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/r9-layout.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/art-rig.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
         }
       ]
     }

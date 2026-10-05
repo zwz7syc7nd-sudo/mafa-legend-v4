@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "龍燼・戰魂 R8",
-  "short_name": "龍燼 R8",
-  "start_url": "./?release=r8",
+  "name": "瑪法・烈焰戰紀 R9.4",
+  "short_name": "烈焰戰紀",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#100e0c",
@@ -10,16 +10,16 @@
   "orientation": "landscape",
   "icons": [
     {
-      "src": "./icon-192.png",
+      "src": "./icon-192.png?v=R9.4.0-six",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "./icon-512.png",
+      "src": "./icon-512.png?v=R9.4.0-six",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  "description": "橫屏單機動作 RPG · 裝備外觀、六區探索與 GM 控制台"
+  "description": "橫屏 2.5D 單機動作遊戲・分層骨架角色與十式戰技"
 }
