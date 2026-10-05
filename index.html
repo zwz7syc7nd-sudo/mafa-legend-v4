@@ -102,6 +102,7 @@ function update(dt){time+=dt;
  let sp=player.speed*dt; if(move.x||move.y){let l=Math.hypot(move.x,move.y)||1;player.x=clamp(player.x+move.x/l*sp,.06,.94);player.y=clamp(player.y+move.y/l*sp,.20,.91)}
  if(player.auto){if(!autoTarget||autoTarget.dead)autoTarget=nearest();if(autoTarget){let dx=autoTarget.x-player.x,dy=autoTarget.y-player.y,dist=Math.hypot(dx,dy);if(dist>.14){player.x+=dx/dist*sp*.8;player.y+=dy/dist*sp*.8}else if((autoTarget.autoCd||0)<=0){hurtMonster(autoTarget,player.one?99999:player.atk*1.15);autoTarget.autoCd=.48}}else{spawnAll();toast('全圖掃完，怪物刷新')}}
  for(const m of monsters){if(m.dead)continue;m.autoCd=Math.max(0,(m.autoCd||0)-dt);m.hit=Math.max(0,m.hit-dt);let dist=Math.hypot(m.x-player.x,m.y-player.y);if(dist<.12&&!player.god){m.hitCd=(m.hitCd||0)-dt;if(m.hitCd<=0){player.hp=Math.max(0,player.hp-(m.boss?18:5));m.hitCd=.8;updateHUD();if(player.hp<=0){player.hp=player.maxHp;player.x=.48;player.y=.65;toast('你被擊倒，已復活');updateHUD()}}}
+ }
  for(const e of effects)e.t+=dt;effects=effects.filter(e=>e.t<.55);for(const d of drops){d.t+=dt;if(Math.hypot(d.x-player.x,d.y-player.y)<.1){player.gold+=d.rare?1200:15;d.pick=true;updateHUD();toast('拾取 '+d.name)}}drops=drops.filter(d=>!d.pick);
 }
 function drawBg(){
