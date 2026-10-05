@@ -1,5 +1,5 @@
 'use strict';
-const VERSION='mafa-reborn-r6-20261005';
+const VERSION='mafa-reborn-r7-20261005';
 const ROOT=new URL('./',self.location.href).href;
 const FILES=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(VERSION);for(const path of FILES){const req=new Request(new URL(path,ROOT),{cache:'reload'});const r=await fetch(req);if(!r.ok)throw Error('Offline asset failed: '+path);await c.put(new URL(path,ROOT),r);}await self.skipWaiting();})()));

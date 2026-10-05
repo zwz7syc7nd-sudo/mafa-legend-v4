@@ -1,0 +1,978 @@
+{
+  "core": {
+    "tests": [
+      {
+        "name": "WebGL2 真正啟動，48 隻怪物與 224 公尺地圖",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "build": "R7.0.0",
+          "alive": 48,
+          "world": 224,
+          "renderer": "WebKit WebGL"
+        }
+      },
+      {
+        "name": "開始按鈕進入橫屏遊戲",
+        "pass": true,
+        "result": {
+          "ok": true
+        }
+      },
+      {
+        "name": "真實觸控搖桿會移動，鏡頭追隨，放手停止",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "moved": 5.005376344085968
+        }
+      },
+      {
+        "name": "城牆碰撞阻擋角色",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "position": [
+            16,
+            45.43333333333332
+          ]
+        }
+      },
+      {
+        "name": "六區尋路可達，節點不穿障礙",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "paths": [
+            {
+              "region": "town",
+              "length": 1,
+              "clear": true
+            },
+            {
+              "region": "meadow",
+              "length": 1,
+              "clear": true
+            },
+            {
+              "region": "forest",
+              "length": 37,
+              "clear": true
+            },
+            {
+              "region": "ruins",
+              "length": 41,
+              "clear": true
+            },
+            {
+              "region": "mine",
+              "length": 65,
+              "clear": true
+            },
+            {
+              "region": "boss",
+              "length": 68,
+              "clear": true
+            }
+          ]
+        }
+      },
+      {
+        "name": "真實腿、手臂、武器、披風關節網格變化",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "walkChanged": 67783,
+          "attackChanged": 119533,
+          "vertices": 20310
+        }
+      },
+      {
+        "name": "四套盔甲和四種武器改變實際模型",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "variants": [
+            {
+              "tier": 0,
+              "appearance": {
+                "armor": 0,
+                "weapon": 0
+              },
+              "verts": 17070,
+              "checksum": 4407663.504878302
+            },
+            {
+              "tier": 1,
+              "appearance": {
+                "armor": 1,
+                "weapon": 1
+              },
+              "verts": 17850,
+              "checksum": 4695875.756302902
+            },
+            {
+              "tier": 2,
+              "appearance": {
+                "armor": 2,
+                "weapon": 2
+              },
+              "verts": 17958,
+              "checksum": 4628729.474763414
+            },
+            {
+              "tier": 3,
+              "appearance": {
+                "armor": 3,
+                "weapon": 3
+              },
+              "verts": 20310,
+              "checksum": 5228146.568416261
+            }
+          ]
+        }
+      },
+      {
+        "name": "怪物巡邏、追擊、攻擊與扣血",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "patrolDistance": 2.247750000000011,
+          "hpBefore": 600,
+          "hpAfter": 565,
+          "state": "attack"
+        }
+      },
+      {
+        "name": "普攻有傷害、動作與冷卻防連按",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "damage": 51,
+          "cooldown": 0.28
+        }
+      },
+      {
+        "name": "死亡、屍體、掉落與背包拾取",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "dead": "dead",
+          "dropCount": 1,
+          "bagBefore": 4,
+          "bagAfter": 5
+        }
+      },
+      {
+        "name": "魔力不足阻止施法；技能消耗和冷卻",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "mp": 78,
+          "cd": 5
+        }
+      },
+      {
+        "name": "野蠻衝刺產生位移、無敵幀、冷卻",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "metres": 4.8000000000000185
+        }
+      },
+      {
+        "name": "GM 表單的自訂數值與外觀生效",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "stats": {
+            "maxHp": 600,
+            "maxMp": 120,
+            "atk": 367,
+            "def": 36,
+            "crit": 30,
+            "leech": 13
+          },
+          "item": {
+            "id": 114,
+            "name": "測試玄霄刃",
+            "slot": "weapon",
+            "quality": "legendary",
+            "atk": 333,
+            "def": 17,
+            "crit": 21,
+            "leech": 13,
+            "look": 2
+          }
+        }
+      },
+      {
+        "name": "面板開啟不會被怪物偷襲",
+        "pass": true,
+        "result": {
+          "ok": true
+        }
+      },
+      {
+        "name": "存檔匯入匯出往返，包含裝備外觀",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "schema": 7,
+          "appearance": {
+            "armor": 3,
+            "weapon": 2
+          },
+          "rejectsBad": true
+        }
+      },
+      {
+        "name": "R6 存檔相容且調整為 R7 橫屏鏡頭",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "level": 18,
+          "zoom": 18.8
+        }
+      },
+      {
+        "name": "直立顯示旋轉提示並暫停移動／戰鬥",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "gate": "flex"
+        }
+      },
+      {
+        "name": "橫向恢復後按鍵區不互相遮擋",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "overlap": [],
+          "rects": [
+            {
+              "id": "hud",
+              "x": 14,
+              "y": 10,
+              "w": 248,
+              "h": 64
+            },
+            {
+              "id": "minimap",
+              "x": 722,
+              "y": 10,
+              "w": 108,
+              "h": 112
+            },
+            {
+              "id": "actions",
+              "x": 555,
+              "y": 10,
+              "w": 155,
+              "h": 42
+            },
+            {
+              "id": "joystick",
+              "x": 24,
+              "y": 250,
+              "w": 120,
+              "h": 120
+            },
+            {
+              "id": "combat",
+              "x": 613,
+              "y": 205,
+              "w": 217,
+              "h": 173
+            }
+          ]
+        }
+      },
+      {
+        "name": "正常數值自動清圖與六區探索",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "baseline": {
+            "maxHp": 600,
+            "maxMp": 120,
+            "atk": 54,
+            "def": 18,
+            "crit": 9,
+            "leech": 0,
+            "bag": 4,
+            "god": false,
+            "one": false
+          },
+          "log": [
+            {
+              "seconds": 30,
+              "alive": 36,
+              "hp": 730,
+              "visited": [
+                "town",
+                "meadow",
+                "ruins"
+              ]
+            },
+            {
+              "seconds": 60,
+              "alive": 24,
+              "hp": 990,
+              "visited": [
+                "town",
+                "meadow",
+                "ruins"
+              ]
+            },
+            {
+              "seconds": 90,
+              "alive": 19,
+              "hp": 1071,
+              "visited": [
+                "town",
+                "meadow",
+                "ruins",
+                "boss",
+                "mine"
+              ]
+            },
+            {
+              "seconds": 120,
+              "alive": 11,
+              "hp": 1315,
+              "visited": [
+                "town",
+                "meadow",
+                "ruins",
+                "boss",
+                "mine"
+              ]
+            },
+            {
+              "seconds": 150,
+              "alive": 0,
+              "hp": 1380,
+              "visited": [
+                "town",
+                "meadow",
+                "ruins",
+                "boss",
+                "mine",
+                "forest"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "name": "角色死亡後於安全城復活",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "was": "dead",
+          "state": "alive",
+          "position": [
+            0,
+            52
+          ]
+        }
+      },
+      {
+        "name": "WebGL 與 JavaScript 無執行錯誤",
+        "pass": true,
+        "result": {
+          "ok": true,
+          "errors": [],
+          "glError": 0
+        }
+      }
+    ],
+    "page_errors": [],
+    "console_errors": [],
+    "html_sha256": "d7476a8548d40c48373c929a881b7fae6183c8e3677e65be8d7534fa91e694bb",
+    "passed": 21,
+    "total": 21,
+    "environment": "Chromium 144 + Xvfb + ANGLE SwiftShader; CDP injected touch; local HTML set_content (no HTTP navigation)"
+  },
+  "extra": {
+    "autoplay": [
+      {
+        "seed": 7,
+        "pass": true,
+        "log": [
+          [
+            30,
+            36,
+            705.2266666666791
+          ],
+          [
+            60,
+            26,
+            832.586666666678
+          ],
+          [
+            90,
+            17,
+            1144.3599999999778
+          ],
+          [
+            120,
+            12,
+            1185.1866666666665
+          ],
+          [
+            150,
+            0,
+            1380
+          ]
+        ],
+        "visited": [
+          "town",
+          "meadow",
+          "forest",
+          "mine",
+          "boss",
+          "ruins"
+        ],
+        "alive": 0,
+        "position": [
+          50.91780186986421,
+          -10.011900466138176
+        ],
+        "bag": 53
+      },
+      {
+        "seed": 42,
+        "pass": true,
+        "log": [
+          [
+            30,
+            33,
+            791.2800000000028
+          ],
+          [
+            60,
+            25,
+            937.4
+          ],
+          [
+            90,
+            17,
+            1120.9333333333325
+          ],
+          [
+            120,
+            12,
+            1185
+          ],
+          [
+            150,
+            0,
+            1380
+          ]
+        ],
+        "visited": [
+          "town",
+          "meadow",
+          "forest",
+          "mine",
+          "boss",
+          "ruins"
+        ],
+        "alive": 0,
+        "position": [
+          56.363800399879025,
+          -10.573162815665217
+        ],
+        "bag": 53
+      },
+      {
+        "seed": 131,
+        "pass": true,
+        "log": [
+          [
+            30,
+            34,
+            736.1600000000019
+          ],
+          [
+            60,
+            23,
+            1004.4
+          ],
+          [
+            90,
+            17,
+            1169.8399999999547
+          ],
+          [
+            120,
+            4,
+            1380
+          ],
+          [
+            150,
+            0,
+            1380
+          ]
+        ],
+        "visited": [
+          "town",
+          "meadow",
+          "forest",
+          "mine",
+          "boss",
+          "ruins"
+        ],
+        "alive": 0,
+        "position": [
+          73.01345280002106,
+          -19.568587282886853
+        ],
+        "bag": 53
+      },
+      {
+        "seed": 601,
+        "pass": true,
+        "log": [
+          [
+            30,
+            36,
+            702.4266666666782
+          ],
+          [
+            60,
+            26,
+            876.8000000000052
+          ],
+          [
+            90,
+            19,
+            1047
+          ],
+          [
+            120,
+            16,
+            1157
+          ],
+          [
+            150,
+            1,
+            1380
+          ],
+          [
+            180,
+            0,
+            1380
+          ]
+        ],
+        "visited": [
+          "town",
+          "meadow",
+          "forest",
+          "mine",
+          "boss",
+          "ruins"
+        ],
+        "alive": 0,
+        "position": [
+          42.92073775106003,
+          -11.916702841192004
+        ],
+        "bag": 53
+      },
+      {
+        "seed": 2026,
+        "pass": true,
+        "log": [
+          [
+            30,
+            36,
+            681.8266666666722
+          ],
+          [
+            60,
+            25,
+            925
+          ],
+          [
+            90,
+            17,
+            1139.9733333333152
+          ],
+          [
+            120,
+            11,
+            1315
+          ],
+          [
+            150,
+            0,
+            1380
+          ]
+        ],
+        "visited": [
+          "town",
+          "meadow",
+          "forest",
+          "mine",
+          "boss",
+          "ruins"
+        ],
+        "alive": 0,
+        "position": [
+          72.05791440432219,
+          -18.454364910565747
+        ],
+        "bag": 53
+      },
+      {
+        "seed": 14401,
+        "pass": true,
+        "log": [
+          [
+            30,
+            35,
+            732.2400000000007
+          ],
+          [
+            60,
+            21,
+            991.7733333333339
+          ],
+          [
+            90,
+            17,
+            1246
+          ],
+          [
+            120,
+            8,
+            1380
+          ],
+          [
+            150,
+            0,
+            1380
+          ]
+        ],
+        "visited": [
+          "town",
+          "meadow",
+          "ruins",
+          "boss",
+          "mine",
+          "forest"
+        ],
+        "alive": 0,
+        "position": [
+          -57.85875144531361,
+          14.924699975731574
+        ],
+        "bag": 53
+      },
+      {
+        "seed": 45678,
+        "pass": true,
+        "log": [
+          [
+            30,
+            35,
+            732.5200000000008
+          ],
+          [
+            60,
+            20,
+            1055
+          ],
+          [
+            90,
+            17,
+            1250
+          ],
+          [
+            120,
+            1,
+            1380
+          ],
+          [
+            150,
+            0,
+            1380
+          ]
+        ],
+        "visited": [
+          "town",
+          "meadow",
+          "ruins",
+          "boss",
+          "mine",
+          "forest"
+        ],
+        "alive": 0,
+        "position": [
+          -53.9976602145531,
+          5.7944131402189685
+        ],
+        "bag": 53
+      },
+      {
+        "seed": 81736,
+        "pass": true,
+        "log": [
+          [
+            30,
+            35,
+            734.4800000000014
+          ],
+          [
+            60,
+            21,
+            996.5333333333353
+          ],
+          [
+            90,
+            19,
+            1128.6799999999723
+          ],
+          [
+            120,
+            7,
+            1380
+          ],
+          [
+            150,
+            0,
+            1380
+          ]
+        ],
+        "visited": [
+          "town",
+          "meadow",
+          "ruins",
+          "boss",
+          "mine",
+          "forest"
+        ],
+        "alive": 0,
+        "position": [
+          -56.476622685462225,
+          4.657475949876576
+        ],
+        "bag": 53
+      }
+    ],
+    "viewports": [
+      {
+        "size": [
+          667,
+          375
+        ],
+        "pass": true,
+        "over": [],
+        "rs": [
+          {
+            "id": "hud",
+            "x": 14,
+            "y": 10,
+            "w": 211,
+            "h": 64
+          },
+          {
+            "id": "minimap",
+            "x": 560,
+            "y": 10,
+            "w": 93,
+            "h": 99
+          },
+          {
+            "id": "actions",
+            "x": 415,
+            "y": 10,
+            "w": 136,
+            "h": 42
+          },
+          {
+            "id": "joystick",
+            "x": 24,
+            "y": 247,
+            "w": 108,
+            "h": 108
+          },
+          {
+            "id": "combat",
+            "x": 457.70001220703125,
+            "y": 207.3000030517578,
+            "w": 195.29998779296875,
+            "h": 155.6999969482422
+          }
+        ]
+      },
+      {
+        "size": [
+          1280,
+          720
+        ],
+        "pass": true,
+        "over": [],
+        "rs": [
+          {
+            "id": "hud",
+            "x": 14,
+            "y": 10,
+            "w": 248,
+            "h": 64
+          },
+          {
+            "id": "minimap",
+            "x": 1158,
+            "y": 10,
+            "w": 108,
+            "h": 112
+          },
+          {
+            "id": "actions",
+            "x": 991,
+            "y": 10,
+            "w": 155,
+            "h": 42
+          },
+          {
+            "id": "joystick",
+            "x": 24,
+            "y": 580,
+            "w": 120,
+            "h": 120
+          },
+          {
+            "id": "combat",
+            "x": 1049,
+            "y": 535,
+            "w": 217,
+            "h": 173
+          }
+        ]
+      },
+      {
+        "size": [
+          932,
+          430
+        ],
+        "pass": true,
+        "over": [],
+        "rs": [
+          {
+            "id": "hud",
+            "x": 14,
+            "y": 10,
+            "w": 248,
+            "h": 64
+          },
+          {
+            "id": "minimap",
+            "x": 810,
+            "y": 10,
+            "w": 108,
+            "h": 112
+          },
+          {
+            "id": "actions",
+            "x": 643,
+            "y": 10,
+            "w": 155,
+            "h": 42
+          },
+          {
+            "id": "joystick",
+            "x": 24,
+            "y": 290,
+            "w": 120,
+            "h": 120
+          },
+          {
+            "id": "combat",
+            "x": 701,
+            "y": 245,
+            "w": 217,
+            "h": 173
+          }
+        ]
+      },
+      {
+        "size": [
+          844,
+          390
+        ],
+        "pass": true,
+        "over": [],
+        "rs": [
+          {
+            "id": "hud",
+            "x": 14,
+            "y": 10,
+            "w": 248,
+            "h": 64
+          },
+          {
+            "id": "minimap",
+            "x": 722,
+            "y": 10,
+            "w": 108,
+            "h": 112
+          },
+          {
+            "id": "actions",
+            "x": 555,
+            "y": 10,
+            "w": 155,
+            "h": 42
+          },
+          {
+            "id": "joystick",
+            "x": 24,
+            "y": 250,
+            "w": 120,
+            "h": 120
+          },
+          {
+            "id": "combat",
+            "x": 613,
+            "y": 205,
+            "w": 217,
+            "h": 173
+          }
+        ]
+      }
+    ]
+  },
+  "worker": {
+    "environment": "Node.js vm executing original worker; mocked browser cache/network API, not end-to-end browser installation",
+    "tests": [
+      {
+        "name": "Service Worker 安裝完整 5 個核心資源",
+        "pass": true
+      },
+      {
+        "name": "更新時只移除舊版瑪法快取，保留其他快取",
+        "pass": true
+      },
+      {
+        "name": "有網路時先取得最新版 HTML",
+        "pass": true
+      },
+      {
+        "name": "沒有網路時回傳已儲存 HTML",
+        "pass": true
+      },
+      {
+        "name": "首次離線無資源時顯示 503 提示",
+        "pass": true
+      },
+      {
+        "name": "不攔截跨站與 POST 請求",
+        "pass": true
+      }
+    ]
+  }
+}

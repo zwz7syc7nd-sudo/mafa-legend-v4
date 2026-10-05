@@ -1,13 +1,13 @@
 {
   "id": "./",
-  "name": "荒境・重生 3D GM",
-  "short_name": "荒境重生",
-  "start_url": "./",
+  "name": "燼土・龍魂 R7",
+  "short_name": "龍魂 R7",
+  "start_url": "./?release=r7",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#111d20",
-  "theme_color": "#111d20",
-  "orientation": "any",
+  "background_color": "#100e0c",
+  "theme_color": "#14110d",
+  "orientation": "landscape",
   "icons": [
     {
       "src": "./icon-192.png",
