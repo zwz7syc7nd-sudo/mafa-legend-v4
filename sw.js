@@ -1,19 +1,10 @@
-// Mafa Legend cache reset service worker
-const RESET_CACHE_VERSION = 'mafa-v4-reset-20261004';
-
-self.addEventListener('install', event => {
-  self.skipWaiting();
-});
-
-self.addEventListener('activate', event => {
-  event.waitUntil((async () => {
-    const keys = await caches.keys();
-    await Promise.all(keys.map(key => caches.delete(key)));
-    await self.clients.claim();
-  })());
-});
-
-self.addEventListener('fetch', event => {
-  // Network only: do not serve any old cached game files.
-  event.respondWith(fetch(event.request));
+'use strict';
+const VERSION='mafa-reborn-r6-20261005';
+const ROOT=new URL('./',self.location.href).href;
+const FILES=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
+self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(VERSION);for(const path of FILES){const req=new Request(new URL(path,ROOT),{cache:'reload'});const r=await fetch(req);if(!r.ok)throw Error('Offline asset failed: '+path);await c.put(new URL(path,ROOT),r);}await self.skipWaiting();})()));
+self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const k of await caches.keys())if((k.startsWith('mafa-')||k.startsWith('mafa_'))&&k!==VERSION)await caches.delete(k);await self.clients.claim();})()));
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin)return;
+ if(e.request.mode==='navigate')e.respondWith((async()=>{const c=await caches.open(VERSION);try{const r=await Promise.race([fetch(e.request,{cache:'no-cache'}),new Promise((_,reject)=>setTimeout(()=>reject(Error('timeout')),3500))]);if(r.ok&&r.headers.get('content-type')?.includes('text/html')){await c.put(new URL('./index.html',ROOT),r.clone());return r;}const cached=await c.match(new URL('./index.html',ROOT));return cached||r;}catch{const cached=await c.match(new URL('./index.html',ROOT));return cached||new Response('離線資源尚未安裝，請連網開啟一次。',{status:503,headers:{'Content-Type':'text/plain;charset=utf-8'}});}})());
+ else e.respondWith((async()=>{const c=await caches.open(VERSION);const cached=await c.match(e.request);if(cached)return cached;return fetch(e.request);})());
 });
