@@ -1,0 +1,8 @@
+{
+  "name": "瑪法傳奇",
+  "short_name": "瑪法傳奇",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070707",
+  "theme_color": "#070707"
+}
