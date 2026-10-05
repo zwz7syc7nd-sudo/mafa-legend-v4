@@ -10,6 +10,15 @@
   ],
   "headers": [
     {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Game-Build",
+          "value": "R8.0.1"
+        }
+      ]
+    },
+    {
       "source": "/index.html",
       "headers": [
         {

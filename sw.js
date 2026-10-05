@@ -1,10 +1,84 @@
 'use strict';
-const VERSION='mafa-reborn-r7-20261005';
+// R8 complete offline resource set. No save data, IndexedDB, or unrelated site cache is deleted.
+const VERSION='mafa-reborn-r8-20261005-r1';
 const ROOT=new URL('./',self.location.href).href;
-const FILES=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
-self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(VERSION);for(const path of FILES){const req=new Request(new URL(path,ROOT),{cache:'reload'});const r=await fetch(req);if(!r.ok)throw Error('Offline asset failed: '+path);await c.put(new URL(path,ROOT),r);}await self.skipWaiting();})()));
-self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const k of await caches.keys())if((k.startsWith('mafa-')||k.startsWith('mafa_'))&&k!==VERSION)await caches.delete(k);await self.clients.claim();})()));
-self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin)return;
- if(e.request.mode==='navigate')e.respondWith((async()=>{const c=await caches.open(VERSION);try{const r=await Promise.race([fetch(e.request,{cache:'no-cache'}),new Promise((_,reject)=>setTimeout(()=>reject(Error('timeout')),3500))]);if(r.ok&&r.headers.get('content-type')?.includes('text/html')){await c.put(new URL('./index.html',ROOT),r.clone());return r;}const cached=await c.match(new URL('./index.html',ROOT));return cached||r;}catch{const cached=await c.match(new URL('./index.html',ROOT));return cached||new Response('離線資源尚未安裝，請連網開啟一次。',{status:503,headers:{'Content-Type':'text/plain;charset=utf-8'}});}})());
- else e.respondWith((async()=>{const c=await caches.open(VERSION);const cached=await c.match(e.request);if(cached)return cached;return fetch(e.request);})());
+const FILES=[
+  "./",
+  "./index.html",
+  "./manifest.webmanifest",
+  "./icon-192.png",
+  "./icon-512.png",
+  "./item-armor-0.png",
+  "./item-armor-1.png",
+  "./item-armor-2.png",
+  "./item-armor-3.png",
+  "./item-charm-0.png",
+  "./item-charm-1.png",
+  "./item-charm-2.png",
+  "./item-charm-3.png",
+  "./item-ring-0.png",
+  "./item-ring-1.png",
+  "./item-ring-2.png",
+  "./item-ring-3.png",
+  "./item-weapon-0.png",
+  "./item-weapon-1.png",
+  "./item-weapon-2.png",
+  "./item-weapon-3.png",
+  "./materials-normal.png",
+  "./materials.jpg",
+  "./skill-attack.jpg",
+  "./skill-dash.jpg",
+  "./skill-fire.jpg",
+  "./skill-potion.jpg",
+  "./skill-whirl.jpg",
+  "./ui-frame.svg"
+];
+const ASSETS=new Set(FILES.map(p=>new URL(p,ROOT).href));
+self.addEventListener('install',event=>{
+ event.waitUntil((async()=>{
+  const cache=await caches.open(VERSION);
+  for(const path of FILES){
+   const url=new URL(path,ROOT).href;
+   const response=await fetch(new Request(url,{cache:'reload'}));
+   if(!response.ok)throw new Error('R8 offline asset unavailable: '+path+' ('+response.status+')');
+   await cache.put(url,response);
+  }
+  await self.skipWaiting();
+ })());
+});
+self.addEventListener('activate',event=>{
+ event.waitUntil((async()=>{
+  for(const key of await caches.keys()){
+   if(key!==VERSION&&(key.startsWith('mafa-reborn-')||key.startsWith('mafa-legend-')))await caches.delete(key);
+  }
+  await self.clients.claim();
+ })());
+});
+self.addEventListener('fetch',event=>{
+ const request=event.request,url=new URL(request.url);
+ if(request.method!=='GET'||url.origin!==self.location.origin||!url.href.startsWith(ROOT))return;
+ const entry=new URL('./index.html',ROOT).href;
+ const path=url.pathname;
+ const isEntry=request.mode==='navigate'&&(path===new URL(ROOT).pathname||path===new URL(entry).pathname);
+ if(isEntry){
+  event.respondWith((async()=>{
+   const cache=await caches.open(VERSION);
+   try{
+    const response=await fetch(request,{cache:'no-cache'});
+    if(response.ok&&response.headers.get('content-type')?.includes('text/html'))await cache.put(entry,response.clone());
+    // Do not disguise a real server 404 by serving an old game as if deployment succeeded.
+    return response;
+   }catch(error){
+    return await cache.match(entry)||new Response('離線資源尚未安裝完成。請先連網開啟遊戲。',{status:503,headers:{'Content-Type':'text/plain;charset=utf-8'}});
+   }
+  })());
+ }else if(ASSETS.has(url.href)){
+  event.respondWith((async()=>{
+   const cache=await caches.open(VERSION),cached=await cache.match(request);
+   if(cached)return cached;
+   const response=await fetch(request);
+   if(response.ok)await cache.put(request,response.clone());
+   return response;
+  })());
+ }
 });

@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "燼土・龍魂 R7",
-  "short_name": "龍魂 R7",
-  "start_url": "./?release=r7",
+  "name": "龍燼・戰魂 R8",
+  "short_name": "龍燼 R8",
+  "start_url": "./?release=r8",
   "scope": "./",
   "display": "standalone",
   "background_color": "#100e0c",
@@ -20,5 +20,6 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ]
+  ],
+  "description": "橫屏單機動作 RPG · 裝備外觀、六區探索與 GM 控制台"
 }
