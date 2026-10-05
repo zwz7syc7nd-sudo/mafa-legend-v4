@@ -80,6 +80,13 @@ const $=s=>document.querySelector(s), canvas=$('#game'), ctx=canvas.getContext('
 const imgs={bg:new Image(),player:new Image(),deer:new Image()};imgs.bg.src=BG;imgs.player.src=PIMG;imgs.deer.src=DEER;
 let W=innerWidth,H=innerHeight,DPR=Math.min(2,devicePixelRatio||1),last=performance.now(),time=0;
 function resize(){W=innerWidth;H=innerHeight;canvas.width=W*DPR;canvas.height=H*DPR;canvas.style.width=W+'px';canvas.style.height=H+'px';ctx.setTransform(DPR,0,0,DPR,0,0)}addEventListener('resize',resize);resize();
+function bootFallback(){
+ ctx.fillStyle='#142116';ctx.fillRect(0,0,W,H);
+ let g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#31432a');g.addColorStop(.6,'#19301d');g.addColorStop(1,'#0c1710');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+ ctx.strokeStyle='rgba(190,160,102,.48)';ctx.lineWidth=Math.max(58,W*.20);ctx.lineCap='round';ctx.beginPath();ctx.moveTo(-60,H*.47);ctx.bezierCurveTo(W*.28,H*.34,W*.58,H*.57,W+70,H*.42);ctx.stroke();
+ ctx.fillStyle='rgba(220,195,135,.92)';ctx.font='bold 18px sans-serif';ctx.textAlign='center';ctx.fillText('荒境古城',W*.5,H*.25);
+}
+bootFallback();
 const player={x:.48,y:.65,r:28,hp:280,maxHp:280,mp:100,maxMp:100,lv:1,exp:0,next:100,atk:26,def:5,gold:0,speed:.34,auto:false,god:false,one:false,weapon:'青銅劍',armor:'布衣',ring:'無',kills:0};
 let move={x:0,y:0}, monsters=[],effects=[],drops=[],autoTarget=null, joyId=null, toastTimer=0;
 function rnd(a,b){return a+Math.random()*(b-a)} function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
@@ -135,7 +142,7 @@ function draw(){ctx.clearRect(0,0,W,H);drawBg();
  let n=nearest();if(n){$('#target').style.opacity=1;$('#targetName').textContent=n.name;$('#targetHp').style.width=(100*n.hp/n.maxHp)+'%'}else $('#target').style.opacity=0;
 }
 function drawMini(){mctx.clearRect(0,0,128,128);mctx.fillStyle='#151913';mctx.fillRect(0,0,128,128);mctx.strokeStyle='#8f6e3a';mctx.lineWidth=5;mctx.beginPath();mctx.moveTo(12,105);mctx.lineTo(116,25);mctx.stroke();for(const m of monsters){if(m.dead)continue;mctx.fillStyle=m.boss?'#ff2d20':'#d16b49';mctx.beginPath();mctx.arc(m.x*128,m.y*128,m.boss?4:2,0,Math.PI*2);mctx.fill()}mctx.fillStyle='#54b9ff';mctx.beginPath();mctx.arc(player.x*128,player.y*128,4,0,Math.PI*2);mctx.fill()}
-function loop(t){let dt=Math.min(.035,(t-last)/1000||.016);last=t;update(dt);draw();requestAnimationFrame(loop)}requestAnimationFrame(loop);
+function loop(t){let dt=Math.min(.035,(t-last)/1000||.016);last=t;try{update(dt);draw()}catch(err){bootFallback();console.warn('render fallback',err)}requestAnimationFrame(loop)}requestAnimationFrame(loop);
 const joy=$('#joystick'),stick=$('#stick');
 function joyMove(cx,cy){let r=joy.getBoundingClientRect(),x=cx-(r.left+r.width/2),y=cy-(r.top+r.height/2),max=r.width*.33,l=Math.hypot(x,y);if(l>max){x=x/l*max;y=y/l*max}move.x=x/max;move.y=y/max;stick.style.transform=`translate(${x}px,${y}px)`}
 function joyEnd(){joyId=null;move.x=move.y=0;stick.style.transform='translate(0,0)'}
