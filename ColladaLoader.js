@@ -39,7 +39,7 @@ import {
 	VectorKeyframeTrack,
 	SRGBColorSpace
 } from 'three';
-import { TGALoader } from '../loaders/TGALoader.js';
+import { TGALoader } from './TGALoader.js';
 
 /**
  * A loader for the Collada format.
