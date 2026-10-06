@@ -1,14 +1,14 @@
 import * as THREE from 'three';
-import {GLTFLoader} from './vendor/three/examples/jsm/loaders/GLTFLoader.js';
-import {clone} from './vendor/three/examples/jsm/utils/SkeletonUtils.js';
-import {mergeGeometries} from './vendor/three/examples/jsm/utils/BufferGeometryUtils.js';
-import {RoomEnvironment} from './vendor/three/examples/jsm/environments/RoomEnvironment.js';
+import {GLTFLoader} from './GLTFLoader.js';
+import {clone} from './SkeletonUtils.js';
+import {mergeGeometries} from './BufferGeometryUtils.js';
+import {RoomEnvironment} from './RoomEnvironment.js';
 import {advanceYaw} from './r10-character.js';
 const V=(x=0,y=0,z=0)=>new THREE.Vector3(x,y,z);let sourcePromise;
 function closeLoop(clip){const duration=clip.duration,steps=Math.ceil(duration*60);clip.tracks=clip.tracks.map(track=>{const sample=track.createInterpolant(),size=track.getValueSize(),first=Array.from(sample.evaluate(0)),times=[],values=[];for(let i=0;i<=steps;i++){const t=duration*i/steps,v=Array.from(sample.evaluate(t)),u=THREE.MathUtils.clamp((t-duration+.18)/.18,0,1),blend=u*u*(3-2*u);times.push(t);if(size===4){const q=new THREE.Quaternion(...v).normalize().slerp(new THREE.Quaternion(...first).normalize(),blend);values.push(...q.toArray());}else values.push(...v.map((x,k)=>x+(first[k]-x)*blend));}return new track.constructor(track.name,times,values);});}
 export function loadDragon(){return sourcePromise??=(async()=>{
- const g=await new GLTFLoader().loadAsync(new URL('./assets/r10-boss/dragon-base.glb',import.meta.url).href);
- g.blackTexture=await new THREE.TextureLoader().loadAsync(new URL('./assets/r10-boss/dragon_black.png',import.meta.url).href);g.blackTexture.colorSpace=THREE.SRGBColorSpace;g.blackTexture.anisotropy=8;
+ const g=await new GLTFLoader().loadAsync(new URL('./dragon-base.glb',import.meta.url).href);
+ g.blackTexture=await new THREE.TextureLoader().loadAsync(new URL('./dragon_black.png',import.meta.url).href);g.blackTexture.colorSpace=THREE.SRGBColorSpace;g.blackTexture.anisotropy=8;
  const rootTrack=g.animations.find(c=>c.name==='idle').tracks.find(t=>t.name==='base.position'),base=rootTrack?Array.from(rootTrack.values.slice(0,3)):null;
  for(const c of g.animations)for(const t of c.tracks)if(t.name==='base.position'&&base)for(let i=0;i<t.values.length;i+=3){t.values[i]=base[0];t.values[i+1]=base[1];}
  closeLoop(g.animations.find(c=>c.name==='walk'));

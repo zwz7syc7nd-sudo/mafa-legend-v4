@@ -1,8 +1,8 @@
 import * as THREE from 'three';
-import {GLTFLoader} from './vendor/three/examples/jsm/loaders/GLTFLoader.js';
-import {clone} from './vendor/three/examples/jsm/utils/SkeletonUtils.js';
-import {RoomEnvironment} from './vendor/three/examples/jsm/environments/RoomEnvironment.js';
-import {mergeGeometries} from './vendor/three/examples/jsm/utils/BufferGeometryUtils.js';
+import {GLTFLoader} from './GLTFLoader.js';
+import {clone} from './SkeletonUtils.js';
+import {RoomEnvironment} from './RoomEnvironment.js';
+import {mergeGeometries} from './BufferGeometryUtils.js';
 
 const V=(x=0,y=0,z=0)=>new THREE.Vector3(x,y,z);
 // Exact integration of a speed-limited exponential turn. For a constant target,
@@ -18,7 +18,7 @@ export function advanceYaw(current,target,dt,attacking=false){
 }
 let source;
 const texLoader=new THREE.TextureLoader();
-const assetRoot=new URL('./assets/r10/',import.meta.url).href;
+const assetRoot=new URL('./',import.meta.url).href;
 export async function loadCharacter(){
  if(source)return source;
  const [gltf,map,mr,bump]=await Promise.all([new GLTFLoader().loadAsync(assetRoot+'champion.glb'),texLoader.loadAsync(assetRoot+'champion-gold.png'),texLoader.loadAsync(assetRoot+'champion-mr.png'),texLoader.loadAsync(assetRoot+'champion-height.png')]);

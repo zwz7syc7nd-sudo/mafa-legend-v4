@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import {mergeGeometries} from './vendor/three/examples/jsm/utils/BufferGeometryUtils.js';
+import {mergeGeometries} from './BufferGeometryUtils.js';
 const V=(x,y,z)=>new THREE.Vector3(x,y,z);
 const COLORS=[0x000000,0x66d9ff,0xc178ff,0xff5b0c];
 let haloTexture,flameTexture;

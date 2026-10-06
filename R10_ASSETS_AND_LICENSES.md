@@ -22,7 +22,7 @@ The shoulder shells, overlapping plates, crown, raised dragon ornaments, split s
 
 ## Three.js
 
-Three.js **0.180.0**, official npm package, MIT license. See `vendor/three/LICENSE`. The distributed module subset is copied unchanged from that version. No runtime CDN dependency, paid generation, system installation or deployment was used.
+Three.js **0.180.0**, official npm package, MIT license. See `LICENSE` in this flat distribution. The distributed module subset comes from that version; relative browser import URLs are adjusted for the flat layout, with module logic unchanged. Original npm metadata is preserved as `three-package.json`. No runtime CDN dependency, paid generation, system installation or deployment was used.
 
 ## Original game artwork
 
