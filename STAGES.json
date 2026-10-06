@@ -1,95 +1,33 @@
 {
-  "build": "R9.4.0-six",
-  "base": "recovered R9.3.0-painted",
+  "build": "R10.4.1-items-glow-review",
+  "base": "R10.3-boss accepted desktop checkpoint",
   "stages": [
     {
       "stage": 1,
-      "title": "場景與橫屏基礎",
-      "state": "implemented; regression-tested in stage 6",
-      "utc": "2026-10-05T17:31:22.559505+00:00",
-      "changes": [
-        "找回並驗證R9.3原始包，不回退到R9.1",
-        "新風化石板、道路羽化與跨區材質過渡",
-        "世界分塊LRU上限64，約36MiB像素快取",
-        "新角色從邊城門內開始，保留舊存檔位置",
-        "更新版本R9.4.0-six"
-      ],
-      "sha256_index": "fc9f135e59f28ce46d9ce0986a412ba58f69e342bc40624479403a0332f40fb7"
+      "title": "Character",
+      "state": "accepted desktop / immutable task-3 checkpoint"
     },
     {
       "stage": 2,
-      "title": "人物與可見神裝",
-      "state": "implemented; regression-tested in stage 6",
-      "utc": "2026-10-05T17:32:45.812333+00:00",
-      "changes": [
-        "修正人物手肘、膝蓋、手掌、刀尖各自運動，不旋轉整張角色冒充揮砍",
-        "8方位朝向由骨架輪廓及前後遮擋呈現，非8方向重繪素材",
-        "四外觀的肩甲尺寸、劍體比例、光翼及色彩分別生效",
-        "NPC採普通裝束，取消安全城同款發光戰士複製",
-        "保留實際骨骼投影記錄供動作驗證"
-      ],
-      "sha256_index": "080065acf7f2b6e23b2d77482797fb5de23230d8176214f17a517c55004e3b6b"
+      "title": "Boss",
+      "state": "accepted desktop / immutable R10.3 checkpoint",
+      "gameZipSHA256": "f30b1cba03b72cde9ec2167ab701c491018c2a8b3d338fc1431707a479763547"
     },
     {
       "stage": 3,
-      "title": "怪物與魔龍",
-      "state": "implemented; regression-tested in stage 6",
-      "utc": "2026-10-05T17:34:18.902340+00:00",
-      "changes": [
-        "重新裁切惡魔頭與四肢，剔除錯把火焰岩石當頭的舊素材",
-        "斥候、冥甲刀衛、幽晶守衛各有不同比例與材質",
-        "替換會出現重複龍頭的翅膀，改為獨立帶骨架的龍翼",
-        "龍頸鱗片與開合下顎分層，保留原有Boss五種行為",
-        "保留巡邏/追擊/攻擊/受擊/死亡流程與動作診斷"
-      ],
-      "sha256_index": "080065acf7f2b6e23b2d77482797fb5de23230d8176214f17a517c55004e3b6b"
+      "title": "Equipment, drops and permanent quality-based emission",
+      "state": "local implementation and QA; parent independent QA pending"
     },
     {
       "stage": 4,
-      "title": "十技能與戰鬥視覺",
-      "state": "implemented; regression-tested in stage 6",
-      "utc": "2026-10-05T17:36:16.844487+00:00",
-      "changes": [
-        "保留10種技能、MP/冷卻與Boss預警的實際傷害判定",
-        "刪除舊版重複渲染的三層同款刀弧，保留定向火焰、雷電、龍魂",
-        "修正怪物頭頂標籤高度並避讓重疊",
-        "限制同時渲染特效與傷害字數，不限制戰鬥判定",
-        "火把改為動態尖焰而非重疊大圓，細化石板尺度"
-      ],
-      "sha256_index": "a892f827ecaec8c263677e35e97ccfa69ac91d7603f4d80c479ab2094f296f9e"
-    },
-    {
-      "stage": 5,
-      "title": "裝備行囊與介面",
-      "state": "implemented; regression-tested in stage 6",
-      "utc": "2026-10-05T17:38:32.501231+00:00",
-      "changes": [
-        "裝備縮圖改用與人物同源的戰甲與武器資產",
-        "背包新增可用分類與強度整理，強化等級真實顯示",
-        "穿戴與強化有即時系統事件記錄，不製造虛假玩家聊天",
-        "統一橫屏黑金觸控布局與裝備預覽",
-        "修復接地陰影選項不生效"
-      ],
-      "sha256_index": "6154969bc51e98af414612b0096f69ddd026977a3b2a0320ed3d9f273e855375"
-    },
-    {
-      "stage": 6,
-      "title": "整合驗證與完整交付",
-      "state": "implemented; regression-tested in stage 6",
-      "utc": "2026-10-05T18:01:01.022964+00:00",
-      "changes": [
-        "43項功能及互動檢查、8項補充檢查全部通過",
-        "3組正常數值自動清圖通過，不開無敵、秒殺或加速",
-        "11項Service Worker單元檢查通過；真實離線端到端仍未驗證",
-        "修正NPC動作記錄覆蓋、手肘抵消、遠鏡頭地塊重建、版本化快取與護符圖示",
-        "每階段獨立工程保存；最後統一報告、來源說明與校驗清單"
-      ],
-      "sha256_index": "d0e6502d96239ef1257c5184f04e68fbaf03cea95d44cd44775c54a222f90572"
+      "title": "Natural combat",
+      "state": "not started; await stage3 independent QA"
     }
   ],
-  "engineering_status": "six_stages_implemented_and_local_tests_passed",
-  "art_target_status": "below_approved_commercial_reference",
-  "physical_iPhone_tested": false,
+  "history": "R9_HISTORY_STAGES.json",
+  "physicalIphoneTested": false,
+  "safariTested": false,
+  "pwaOfflineTested": false,
   "deployed": false,
-  "final_utc": "2026-10-05T18:01:00.851366+00:00"
+  "uploaded": false
 }

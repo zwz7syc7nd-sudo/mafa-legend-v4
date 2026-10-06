@@ -1,0 +1,9 @@
+{
+  "name": "mafa-r10-items-review",
+  "version": "10.4.1",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "three": "0.180.0"
+  }
+}
