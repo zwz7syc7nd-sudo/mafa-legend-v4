@@ -1,0 +1,46 @@
+/* Four-column icon bag; detail and persistent sale controls fit landscape phones. */
+.panel:has(#bag-panel:not([hidden])){height:94dvh;max-height:94dvh}
+.panel:has(#bag-panel:not([hidden])) main{flex:1;height:auto!important;min-height:0;max-height:none!important;overflow:hidden!important}
+#bag-panel,#bag-panel #bag-layout{height:100%;min-height:0}
+#bag-panel #bag-layout{display:grid;grid-template-columns:minmax(0,44%) minmax(0,1fr)!important;gap:10px;align-items:stretch}
+#bag-panel #hero-preview,#bag-panel #armory-caption,#bag-panel #preview-controls{display:none!important}
+#bag-panel #armory-view{display:flex;flex-direction:column;min-height:0;height:100%;overflow:hidden;padding:0;position:relative}
+#bag-panel #equipment{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin:0 0 5px;flex:none;position:static}
+#bag-panel #equipment .equipment-slot{min-height:48px;min-width:0;width:auto;height:48px;padding:2px;display:flex;flex-direction:column;gap:0;text-align:center;overflow:hidden}
+#bag-panel #equipment .equipment-slot img{height:28px;width:32px}#bag-panel #equipment .equipment-slot b{display:none}#bag-panel #equipment .equipment-slot small{font-size:10px;line-height:12px}
+#bag-panel #item-detail{display:flex;flex-direction:column;flex:1;min-height:0;margin:0;padding:7px;overflow:hidden}
+#bag-panel .detail-body{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding-right:3px}
+#bag-panel #item-detail h3{font-size:14px!important;line-height:18px;margin:0 0 4px}
+#bag-panel #item-detail p{font-size:11px!important;line-height:16px;margin:3px 0}
+#bag-panel #item-detail .item-rule{font-size:10px!important;color:#bcac91}
+#bag-panel #item-detail .item-actions{flex:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;margin-top:5px;padding-top:5px;border-top:1px solid #81603466}
+#bag-panel #item-detail button{min-height:40px;padding:4px;font-size:12px;line-height:16px}
+#bag-panel #enhance-item{grid-column:1/-1}
+#bag-panel #bag-content{height:100%;min-height:0;overflow:hidden;display:flex;flex-direction:column;padding:0 2px}
+#bag-panel #hero-stats{flex:none;gap:4px;margin:0 0 4px}
+#bag-panel #hero-stats .stat-cell{padding:2px;font-size:9px}
+#bag-panel #hero-stats .stat-cell b{font-size:15px;line-height:17px;margin:0}
+#bag-panel #bag-count{flex:none;font-size:10px;line-height:16px;margin:0 0 4px;padding:0;white-space:normal}
+#bag-panel #bag-tabs{display:flex;flex:none;gap:3px;padding:0;margin:0 0 4px}
+#bag-panel #bag-tabs button{flex:1;min-width:0;min-height:34px;padding:3px;font-size:11px}
+#bag-panel #inventory-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))!important;flex:1;min-height:0;max-height:none;height:auto;overflow-y:auto;align-content:start;gap:5px;padding:2px}
+#bag-panel #inventory-grid .item{height:73px;min-height:73px;min-width:0;padding:0;overflow:hidden}
+#bag-panel .item img{height:52px;width:100%;object-fit:contain}#bag-panel .item span{font-size:10px;line-height:17px;padding:0 2px}
+#bag-panel .item .item-quality{font-size:8px;left:1px;top:1px}#bag-panel .item .enhance-rank{right:1px;top:1px;font-size:11px}
+#bag-panel .item.locked:before{content:'鎖';position:absolute;right:2px;bottom:18px;font-size:10px;padding:1px 3px;background:#242d39;color:#e0e9f5;border:1px solid #8facc4}
+#bag-panel .item.selected{outline:2px solid #fff0b4;outline-offset:-4px}
+#bag-panel #bag-toolbar{display:flex;flex:none;gap:5px;margin:5px 0 0!important;padding:0}
+#bag-panel #bag-toolbar button{min-width:0;min-height:44px;font-size:11px;padding:3px}
+#bag-panel #bag-selection-hint{font-size:12px;line-height:1.8;padding:8px}
+@media(min-height:600px){#bag-panel #item-detail button{min-height:46px}#bag-panel #inventory-grid .item{height:91px}#bag-panel .item img{height:70px}#bag-panel #item-detail h3{font-size:17px!important}#bag-panel #item-detail p{font-size:13px!important;line-height:20px}}
+
+#gm-enhance-panel{margin:12px 0;padding:10px;border:1px solid #a38350;background:#1d150d}#gm-enhance-panel label{font-size:13px;color:#ebd39e}#gm-enhance-panel .gm-enhance-row{display:flex;gap:8px}#gm-enhance-select{flex:1;min-width:0;padding:8px;font-size:13px}#gm-enhance-item{min-height:44px;font-size:12px}#gm-enhance-info{margin:6px 0 0;font-size:11px}
+
+#prototype-status{font-size:10px;font-weight:400;color:#d8c7a6;margin-left:auto;margin-right:12px;letter-spacing:0;white-space:nowrap}
+
+/* Compact supply drawer keeps the playable phone bag scroll area usable. */
+#r12-supplies{display:block;flex:none;margin:3px 0;padding:3px 6px;overflow:hidden}
+#r12-supplies summary{min-height:30px;line-height:30px;cursor:pointer;font-size:12px;color:#e6d3a9}
+#r12-supplies .r12-shop-items{display:flex;gap:6px;max-width:100%;overflow-x:auto;padding:4px 0}
+#r12-supplies button{flex:none;min-height:44px}
+@media(max-height:480px){#bag-panel #hero-stats{display:none}#bag-panel #bag-count:after{content:attr(data-stats)}#bag-panel #inventory-grid .item{height:60px;min-height:60px}#bag-panel .item img{height:40px}}

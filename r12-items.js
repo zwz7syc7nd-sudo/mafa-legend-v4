@@ -1,0 +1,8 @@
+(function(root){
+const definitions={red:{name:'治癒藥水',description:'恢復 55% 生命與 45 魔力；冷卻 9 秒。',price:35,color:'#c94336'},green:{name:'加速藥水',description:'300 秒移速 ×1.20、攻速 ×1.25；重喝刷新時間，不疊加。',price:90,color:'#65a23f'},recall:{name:'回城卷軸',description:'返回草原安全起點，獲得 3 秒保護。',price:70,color:'#6ca9bd'},enhance:{name:'裝備強化卷軸',description:'所選裝備強化一級，100% 成功，上限 +15；消耗一張、不收金幣。',price:250,color:'#c9ab62'}};
+const skillNames={fire:'烈焰斬',crescent:'半月斬',dash:'衝鋒',thunder:'雷刃',whirl:'旋風',avatar:'戰神',dragon:'龍焰',guard:'護盾',blink:'瞬影'};
+for(const [skill,name] of Object.entries(skillNames))definitions['skill:'+skill]={name:name+'技能卷',description:'學習或提升'+name+'一級，上限 5 級。',skill,price:180,color:'#8b79b5'};
+const cache=new Map();function icon(kind){if(cache.has(kind))return cache.get(kind);const d=definitions[kind]||definitions.enhance,bottle=['red','green'].includes(kind);const art=bottle?'<path d="M25 7h14v16c0 8 13 9 13 23 0 17-40 17-40 0 0-14 13-15 13-23Z" fill="'+d.color+'" stroke="#eadbad" stroke-width="2"/><path d="M25 6h14v7H25Z" fill="#baa37f"/><path d="M22 34q-6 7-3 15" fill="none" stroke="#fff3cb" stroke-width="2"/>':'<path d="M15 10h35l-5 42H10Z" fill="#b7a079" stroke="#544532" stroke-width="2"/><path d="M13 10q-7 3-3 10h32q-5-7 8-10M10 52q6-7 13-1h28q-7 11-13 4H10" fill="#e4d1a3" stroke="#665233"/><path d="m28 22-7 11 7 11 9-12Z" fill="'+d.color+'" stroke="#eee1bb"/>';
+const uri='data:image/svg+xml;charset=utf-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="2" y="2" width="60" height="60" rx="7" fill="#202119"/>'+art+'</svg>');cache.set(kind,uri);return uri;}
+root.R12Items={definitions,icon};
+})(globalThis);
