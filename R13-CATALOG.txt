@@ -1,0 +1,68 @@
+R13 本版全部47物品／經典M核心17穿戴位
+裝備35件：
+巨劍｜武器｜great-sword｜AC 0, MR 0, DR 0
+武官雙手劍｜武器｜officer-greatsword｜AC 0, MR 0, DR 0
+毀滅巨劍｜武器｜destruction-greatsword｜AC 0, MR 0, DR 0
+底比斯歐西里斯雙手劍｜武器｜thebes-greatsword｜AC 0, MR 0, DR 0
+惡魔王雙手劍｜武器｜demon-king-greatsword｜AC 0, MR 0, DR 0
+雷雨之劍｜武器｜thunder-sword｜AC 0, MR 0, DR 0
+水晶短劍｜武器｜crystal-dagger｜AC 0, MR 0, DR 0
+鋼鐵金屬盔甲｜盔甲｜steel-plate｜AC -12, MR 0, DR 0
+武官護鎧｜盔甲｜officer-armor｜AC -19, MR 0, DR 0
+巴風特盔甲｜盔甲｜baphomet-armor｜AC -28, MR 0, DR 2
+魔法防禦頭盔｜頭盔｜magic-defense-helmet｜AC -3, MR 10, DR 0
+武官頭盔｜頭盔｜officer-helmet｜AC -5, MR 0, DR 0
+武官斗篷｜斗篷｜officer-cloak｜AC -4, MR 0, DR 0
+銀光斗篷｜斗篷｜silver-cloak｜AC -5, MR 15, DR 0
+鋼鐵手套｜手套｜steel-gloves｜AC -3, MR 0, DR 0
+鋼鐵長靴｜長靴｜steel-boots｜AC -4, MR 0, DR 0
+鋼鐵盾牌｜盾牌｜steel-shield｜AC -7, MR 0, DR 0
+銀騎士之盾｜盾牌｜silver-knight-shield｜AC -9, MR 0, DR 0
+力量T恤｜T恤｜strength-shirt｜AC -1, MR 0, DR 0
+魔法防禦褲子｜褲子｜magic-defense-greaves｜AC -4, MR 2, DR 0
+體力臂甲｜臂甲｜health-guard｜AC 0, MR 0, DR 0
+歐吉皮帶｜腰帶｜ogre-belt｜AC 0, MR 0, DR 0
+倫提斯的藍光耳環｜耳環｜roomtis-blue-earring｜AC 0, MR 0, DR 0
+倫提斯的黑光耳環｜耳環｜roomtis-black-earring｜AC -1, MR 0, DR 0
+史奈普的英雄戒指｜史奈普戒指｜snapper-hero-ring｜AC 0, MR 0, DR 0
+史奈普的防禦戒指｜史奈普戒指｜snapper-defense-ring｜AC -2, MR 10, DR 0
+死亡騎士的烈炎之劍｜武器｜death-knight-flame-sword｜AC 0, MR 0, DR 0
+死亡騎士頭盔｜頭盔｜death-knight-helmet｜AC -7, MR 0, DR 0
+死亡騎士盔甲｜盔甲｜death-knight-armor｜AC -28, MR 0, DR 0
+死亡騎士手套｜手套｜death-knight-gloves｜AC -7, MR 0, DR 0
+死亡騎士長靴｜長靴｜death-knight-boots｜AC -8, MR 0, DR 0
+變形怪首領之戒（左）｜戒指｜doppelganger-left-ring｜AC 0, MR 0, DR 0
+變形怪首領之戒（右）｜戒指｜doppelganger-right-ring｜AC 0, MR 0, DR 0
+變形怪首領項鍊｜項鍊｜doppelganger-amulet｜AC 0, MR 0, DR 0
+發光的古老項鍊｜項鍊｜ancient-shining-amulet｜AC -1, MR 0, DR 0
+
+死亡騎士套裝：
+四件齊備：AC -10、近距離傷害 +2、STR +2，沿用歷史 M 四件套的屬性方向與數字；AC、STR 的實際戰鬥換算由本作公式處理。武器不屬於此四件套。
+
+7一般道具＋5騎士技術書：
+治癒藥水：恢復最大生命的 35%；冷卻 3 秒。數值為本作平衡。
+綠色藥水：300 秒內移速 ×1.20、攻速 ×1.25；重喝刷新時間，不疊加同種效果。本作倍率。
+回村卷軸：返回安全起點，獲得 3 秒保護；消耗一張。本作回城地點。
+對武器施法的卷軸：所選武器強化 +1；100% 成功，上限 +15，不收金幣。成功率及上限為本作自訂。
+對盔甲施法的卷軸：所選防具強化 +1；不適用武器與飾品。100% 成功，上限 +15。本作自訂強化。
+勇敢藥水：騎士第二段加速：300 秒攻速再 ×1.20，可與綠水並用；不提高移速。重喝刷新。本作倍率。
+瞬間移動卷軸：傳送至可站立的隨機位置；消耗一張。本作地圖內瞬移，不是戰鬥技能。
+技術書（衝擊之暈）：學習或提升衝擊之暈一級，上限 5 級；學會後須另行施放。施放須持雙手劍。本作學習規則。
+技術書（增幅防禦）：學習或提升增幅防禦一級，上限 5 級；學會後須另行施放。本作學習規則。
+技術書（尖刺盔甲）：學習或提升尖刺盔甲一級，上限 5 級；學會後須另行施放。本作學習規則。
+技術書（堅固防護）：學習或提升堅固防護一級，上限 5 級；學會後須另行施放。本作學習規則。
+技術書（反擊屏障）：學習或提升反擊屏障一級，上限 5 級；學會後須另行施放。施放須持雙手劍。本作學習規則。
+
+範圍與來源：
+本作經典 M 核心 17 位的有限裝備範圍，採《天堂M》代表性騎士項目；名稱／類別參照 NC 歷史官方指南，中文為常用譯名，非現行台服完整圖鑑。
+本作 17 核心裝備位全部開放是本作設定；不套用 PC 版解鎖等級，也不宣稱涵蓋現行 M 全部欄位。所有攻防、品質分級、HP／MP、命中、暴擊、吸血、傷害、速度、時間、價格、學習／強化與掉落設定皆為本作自訂平衡；不宣稱官方數值或公式。
+本作原創 SVG 道具介面圖示，非官方道具圖片；英雄與怪物圖像維持原樣。
+0 {"id":"specialAccessories","title":"NC 天堂M 倫提斯與史奈普道具公告","url":"https://lounge.plaync.com/feed/16209","sourceScope":"官方確認藍光／黑光倫提斯耳環與英雄／防禦史奈普戒指存在；繁中名稱與功能方向由 2019 次級 M 資料交叉核對，數值為本作自訂。","crossChecks":[{"url":"https://www.lineagem.com.tw/info/buy-earrings-and-rings","scope":"次級 M 繁中名稱與藍耳補血、黑耳近戰、英雄戒 HP／近戰、防禦戒 AC／MR 方向"}]}
+1 {"id":"ogreBelt","title":"NC 天堂M 歷史野外狩獵指南","url":"https://rc-wstatic.plaync.co.kr/lineagem/guidebook/begin_levelup_levelup_filed.html","sourceScope":"龍谷區域熱門掉落表中的歐吉皮帶存在性，非逐怪掉率；本作皮帶 HP 加成是自訂換算。"}
+2 {"id":"deathKnightSword","title":"NC 天堂M 2025 死亡騎士更新公告","url":"https://about.ncsoft.com/news/article/lineagem-update-250319","sourceScope":"官方確認死亡騎士火劍存在；繁中名稱與騎士可用單手劍分類採次級歷史資料交叉核對，非現行台服完整裝備規格。","crossChecks":[{"url":"https://www.lineagem.com.tw/news/twinfo/tw-0122-update","scope":"次級台服 M 報導中的繁中名稱"},{"url":"https://mineagem.pixnet.net/blog/posts/15064442295","scope":"次級 M 歷史裝備表中的單手劍分類與騎士可用性"}]}
+3 {"id":"jewelry","title":"NC Lineage M 歷史首領獎勵指南","url":"https://rc-wstatic.plaync.co.kr/lineagem/guidebook/begin_levelup_levelup_boss.html","sourceScope":"變形怪首領左右戒指、項鍊及發光的古老項鍊之歷史存在性。此頁不證明職業限制或目前台服譯名；本作採常用／直譯中文，騎士可用與數值為本作設定。"}
+4 {"id":"weapon","title":"NC Lineage M 歷史武器製作指南","url":"https://rc-wstatic.plaync.co.kr/lineagem/guidebook/game_item_make_weapon.html","sourceScope":"歷史武器存在性及分類；中文採常用譯名；非 2026 台服數值。"}
+5 {"id":"armor","title":"NC Lineage M 歷史防具圖鑑","url":"https://rc-wstatic.plaync.co.kr/lineagem/guidebook/game_item_item_shield.html","sourceScope":"歷史防具名稱、部位與騎士可用性；盾牌僅配單手武器。官方網頁搜尋索引可讀，直接讀取可能逾時。","crossChecks":[{"url":"https://www.lineagem.com.tw/info/shields-ability","scope":"次級 M 歷史繁中防具表，用於力量T恤、魔法防禦褲子與體力臂甲等名稱核對"}]}
+6 {"id":"knight","title":"NC Lineage M 歷史騎士指南","url":"https://rc-wstatic.plaync.co.kr/lineagem/guidebook/game_class_knight.html","sourceScope":"五項基本騎士技術的身份／功能方向；衝擊之暈與反擊屏障限雙手劍。非目前台服技能數值。"}
+7 {"id":"consumable","title":"NC Lineage M 歷史一般道具指南","url":"https://rc-wstatic.plaync.co.kr/lineagem/guidebook/game_item_item_general.html","sourceScope":"治癒、綠水、勇水、回村與隨機瞬移的用途；本作持續時間與倍率另外設定。"}
+8 {"id":"enchant","title":"NC Lineage M 歷史強化系統","url":"https://rc-wstatic.plaync.co.kr/lineagem/guidebook/game_item_enchant.html","sourceScope":"武器魔法卷軸與防具魔法卷軸的用途。官方存在失敗／消失風險；本作採自訂百分之百成功、上限 +15。"}

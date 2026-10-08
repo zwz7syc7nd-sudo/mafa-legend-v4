@@ -1,0 +1,56 @@
+/* Stage 3: accessible item controls above the world effects layer. */
+#loot-labels{position:fixed;inset:0;z-index:6;pointer-events:none}
+.loot-label{position:absolute;pointer-events:auto;display:flex;align-items:center;gap:5px;width:186px;min-height:38px;padding:4px 7px;border:1px solid var(--quality);border-left:4px solid var(--quality);border-radius:3px;background:#0b0b10f5;color:var(--quality);box-shadow:0 2px 8px #000c;font-size:12px;text-align:left;touch-action:manipulation}
+.loot-label img{width:27px;height:27px;object-fit:contain;flex:none}.loot-label span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.loot-label small{display:block;font-size:10px;color:#f1e5d6}
+#loot-overflow{position:fixed;left:50%;bottom:8px;transform:translateX(-50%);z-index:8;background:#15100afa;border:1px solid #caac6a;color:#eadbbd;padding:7px 12px;max-width:60vw;max-height:42vh;overflow:auto;pointer-events:auto}
+#loot-overflow>button{position:static;transform:none;margin:4px 0;width:100%;min-width:230px}
+#save-protection{position:fixed;z-index:45;left:50%;top:4px;transform:translateX(-50%);padding:9px 14px;max-width:85vw;background:#481e13fa;border:1px solid #ffb684;color:#fff2e1;font-size:12px}
+#save-protection button{margin-left:10px;min-height:34px;background:#2a130e;border:1px solid #d4a170;color:#ffe5b7}
+#bag-panel #bag-layout{grid-template-columns:minmax(220px,38%) minmax(0,1fr)!important;align-items:start}
+#bag-panel #armory-view{height:auto;min-height:0;position:sticky;top:0;padding:5px;overflow:visible}
+#bag-panel #equipment{position:relative;inset:auto;grid-template-columns:1fr 1fr;gap:5px;pointer-events:auto}
+#equipment .equipment-slot{min-width:0;min-height:60px;padding:5px;display:flex;gap:6px;align-items:center;background:#140e08;border:1px solid var(--quality,#6d5944);text-align:left;color:#e8d5ad}
+#equipment .equipment-slot img{width:38px;height:44px;object-fit:contain}
+#equipment .equipment-slot b{display:block;font-size:11px;line-height:1.3;overflow-wrap:anywhere}
+#equipment .equipment-slot small{font-size:10px;color:#b5a58a}
+#bag-panel #inventory-grid{grid-template-columns:repeat(4,minmax(0,1fr));max-height:260px;overflow-y:auto;scrollbar-width:thin;padding:2px}
+#bag-panel #inventory-grid .item{height:83px;min-height:83px;aspect-ratio:auto;border-color:var(--quality);border-width:2px}
+#bag-panel .item img{height:61px;width:100%;object-fit:contain}
+#bag-panel .item span{font-size:11px;line-height:17px;padding:1px 3px;color:var(--quality);background:#080605ef}
+#bag-panel .item .item-quality{position:absolute;top:2px;left:3px;font-size:9px;color:var(--quality);background:#090606da}
+#bag-panel .enhance-rank{right:3px;top:2px;font-weight:bold;font-size:13px;background:#080505da}
+#bag-panel #item-detail{position:relative;margin:8px 0 0;padding:10px;background:#160f0c;border-color:var(--quality,#99723f)}
+#item-detail h3{font-size:15px!important;color:var(--quality)!important}#item-detail p{font-size:12px!important;margin:5px 0;line-height:1.6}
+#item-detail .item-actions{display:flex;gap:7px;flex-wrap:wrap}#item-detail button{min-height:42px;padding:7px 15px;font-size:12px}
+#item-detail .item-rule{color:#bdb09c;font-size:11px!important}#item-detail .item-id{color:#a3957d;font-size:10px!important}
+#bag-panel #reinforce{display:none}#bag-panel .row{margin-top:7px!important}#bag-panel .row button{min-height:40px}
+#bag-panel #bag-count{font-size:12px}#bag-panel #bag-tabs button{min-height:38px;font-size:12px}
+#bag-panel .item.rare{box-shadow:inset 0 0 9px #32bde540,0 0 4px #32bde53b}
+#bag-panel .item.epic{box-shadow:inset 0 0 12px #b162ed50,0 0 6px #b162ed70}
+#bag-panel .item.legendary{box-shadow:inset 0 0 13px #ff83195c,0 0 7px #ff9b2190;border-color:#ffe08a}
+#equipment .equipment-slot[style*="f5bd61"]{box-shadow:inset 0 0 13px #ff831940,0 0 6px #ff9b2170}
+@media(orientation:landscape) and (max-height:480px){
+ #bag-panel #bag-layout{grid-template-columns:minmax(185px,32%) minmax(0,1fr)!important}
+ #bag-panel #hero-preview{height:175px!important}
+ #bag-panel #equipment .equipment-slot{min-height:50px;padding:3px;gap:3px}
+ #equipment .equipment-slot img{width:28px;height:35px}#equipment .equipment-slot b{font-size:10px}
+ #bag-panel #inventory-grid{max-height:172px;grid-template-columns:repeat(5,minmax(0,1fr))}
+ #bag-panel #inventory-grid .item{height:73px;min-height:73px}#bag-panel .item img{height:51px}
+ #bag-panel #armory-caption{font-size:10px;height:auto;min-height:30px}
+ #item-detail button{min-height:40px}#bag-panel #hero-stats .stat-cell{padding:3px}
+ .loot-label{width:168px;min-height:38px;font-size:11px}
+}
+@media(orientation:portrait){#loot-labels,#loot-overflow{display:none!important}}
+.panel:has(#bag-panel:not([hidden])):before{display:none}
+@media(orientation:landscape) and (max-height:480px){
+ .panel:has(#bag-panel:not([hidden])) main{height:calc(100dvh - 91px);max-height:none;overflow:hidden}
+ #bag-panel,#bag-panel #bag-layout{height:100%;min-height:0}
+ #bag-panel #bag-content{height:100%;overflow-y:auto;overscroll-behavior:contain;padding:0 3px 6px}
+ #bag-panel #armory-view{position:relative;top:auto;height:100%;overflow-y:auto;padding:3px}
+ #bag-panel #hero-preview{height:120px!important}
+ #bag-panel #armory-caption{font-size:9px;line-height:12px;min-height:26px;padding:1px}
+ #bag-panel #equipment .equipment-slot{min-height:43px}
+ #bag-panel #equipment .equipment-slot img{height:29px}
+ #bag-panel #preview-controls{padding:2px;gap:3px}
+ #bag-panel #preview-controls button{min-height:32px;min-width:43px;padding:4px}
+}
